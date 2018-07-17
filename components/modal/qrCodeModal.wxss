@@ -1,0 +1,52 @@
+@import "../../app.wxss";
+
+@import "dialog.wxss";
+
+.selector-content {
+    padding: 20rpx 0rpx 50rpx;
+    width: 620rpx;
+}
+
+.circle-line-trans {
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 25rpx;
+}
+
+.qr-code {
+    width: 420rpx;
+    height: 420rpx;
+}
+
+.code-top {
+    border-radius: 4rpx 4rpx 0 0;
+}
+
+.code-bottom {
+    border-radius: 0 0 4rpx 4rpx;
+}
+
+.code-bottom .g-pb-20 {
+    padding-bottom: 20rpx;
+}
+
+.line-h-48 {
+    line-height: 48rpx;
+}
+
+.line-h-32 {
+    line-height: 32rpx;
+}
+
+.line-h-45 {
+    line-height: 45rpx;
+}
+
+.g-pb-60 {
+    padding-bottom: 60rpx;
+}
+
+.g-pt-80 {
+    padding-top: 80rpx;
+}

@@ -1,0 +1,16 @@
+<container>
+    <view class="s-fs-28 s-fc-9 g-pl-30 g-pr-30 g-h-70 g-flex g-flex-v-center">当前城市</view>
+    <view catchtap="showDialog" class="g-pa-30 g-flex g-flex-v-center g-flex-between s-bgc-wt">
+        <text class="s-fs-30">{{currentCity||'未定位'}}</text>
+        <text class="s-fc-main s-fs-28">切换</text>
+    </view>
+    <view class="s-fs-28 s-fc-9 g-pl-30 g-pr-30  g-h-70 g-flex g-flex-v-center">门店列表</view>
+    <view catchtap="changeStore" class="g-h-110 {{index<storeList.length-1?'g-bd-b':''}} s-fs-32 g-flex g-flex-v-center g-flex-between g-pa-30 s-bgc-wt" data-detail="{{item}}" wx:for="{{storeList}}">
+        <view class="g-flex-c1 g-text-line1-b">{{item.storeName}}</view>
+        <view class="iconfont icon-checked s-fc-main s-fs-26 g-w-40" wx:if="{{item.storeId==storeId}}"></view>
+    </view>
+</container>
+<dialog show="{{showDialog}}" title="选择城市">
+    <select-block itemNoPadding radio bind:change="cityChange" display="city" key="city" options="{{cities}}" value="{{currentCity}}"></select-block>
+</dialog>
+<foot-menu option="{{state.menuState}}"></foot-menu>

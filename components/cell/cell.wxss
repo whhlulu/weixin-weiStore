@@ -1,0 +1,29 @@
+@import "../../__wuBaseWxss__/6.wxss";
+
+.cell-item {
+    height: 110rpx;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.disabled .cell-title,.disabled .cell-content {
+    color: #dddddd!important;
+}
+
+.no-padding.g-arrow:after {
+    right: 0;
+}
+
+.cell-content {
+    padding-right: 0rpx;
+}
+
+.g-arrow .cell-content {
+    padding-right: 60rpx;
+}
+
+.no-padding.g-arrow .cell-content {
+    padding-right: 30rpx;
+}

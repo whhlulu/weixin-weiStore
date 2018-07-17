@@ -1,0 +1,11 @@
+<view catch:touchmove="stop" class="modal g-flex g-flex-center g-flex-v-center" hidden="{{!showAlert}}">
+    <view class="alert-content s-bgc-wt g-br g-tac fadeIn g-pt-50">
+        <view class="s-fs-36  s-fb-m" wx:if="{{option.title}}">{{option.title}}</view>
+        <view class="{{option.title?'s-fc-8 s-fs-30':'s-fc-3 s-fs-32'}} g-pa-20 g-pb-40 s-fb-m">{{option.content}}</view>
+        <view catchtap="closeAlert" class="alert-footer s-fc-main  g-bd-t s-fs-32 s-fb-m" wx:if="{{option.type=='alert'}}">{{option.btnText}}</view>
+        <view class="alert-footer g-flex g-bd-t s-fs-36 " wx:elif="{{option.type=='confirm'}}">
+            <view catchtap="cancel" class="g-flex-c1 g-pl-10 g-pr-10 g-bd-r s-fb-m">{{option.cancelOpt.text}}</view>
+            <view catchtap="ok" class="g-flex-c1 g-pl-10 g-pr-10 s-fc-main s-fb-m">{{option.okOpt.text}}</view>
+        </view>
+    </view>
+</view>

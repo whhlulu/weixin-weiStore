@@ -1,0 +1,4 @@
+<view class="g-h100-sc {{state.menuState.show?'g-pb-100':''}} {{klass}} {{state.isIpx?'fix-iphonex-button':''}}" style="overflow-x: hidden">
+    <slot></slot>
+    <view class="weimob-logo"></view>
+</view>

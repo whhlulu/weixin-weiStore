@@ -1,0 +1,13 @@
+<view class="g-flex g-flex-between g-flex-wap g-pa-30 block-content">
+    <view catchtap="itemClick" class="g-bd-a select-item g-br-m s-fc-9 s-fs-24 g-tac g-flex g-flex-v-center g-flex-center {{filter.getActive(item[key],inputValue,radio)?'active s-fc-main s-bdc-main':''}} " data-option="{{item}}" wx:if="{{item[display]}}" wx:for="{{options}}" wx:key="{{index}}">{{item[display]}}</view>
+</view>
+<wxs module="filter">
+function getActive(value, baseValue, radio) {
+    if (radio === 'false' || radio === false) {
+        return (baseValue.indexOf(value) >= 0)
+    } else {
+        return (baseValue == value)
+    }
+};
+module.exports.getActive = getActive;
+</wxs>

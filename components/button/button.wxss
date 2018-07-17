@@ -1,0 +1,60 @@
+@import "../../__wuBaseWxss__/6.wxss";
+
+.btn {
+    width: 100%;
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+}
+
+.btn.primary {
+    background-color: #FF5050;
+    border: 1rpx solid #FF5050;
+    color: #fff;
+}
+
+.btn.cancel {
+    border: 2rpx solid #ddd;
+    color: #888;
+    background-color: #fff;
+}
+
+.btn.mini {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 28rpx!important;
+}
+
+.btn:active {
+    filter: brightness(.8);
+}
+
+.btn.disabled {
+    filter: opacity(.4);
+    pointer-events: none;
+}
+
+.btn.primary.plain {
+    color: #FF5050;
+}
+
+.btn.plain {
+    background-color: transparent;
+}
+
+.btn.md {
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.appoint {
+    background: #E0E0E0;
+    color: #fff;
+    border-radius: 4rpx;
+}
+
+.appoints {
+    background: #FF5050;
+    color: #fff;
+    border-radius: 4rpx;
+}

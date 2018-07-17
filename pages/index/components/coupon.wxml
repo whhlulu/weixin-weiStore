@@ -1,0 +1,6 @@
+<view class="index-coupon">
+    <view class="g-h100 g-flex  g-flex-between g-flex-v-center">
+        <view class="s-fs-32 coupon-name">{{info.name}}</view>
+        <button bindgetuserinfo="receiveCoupon" class="receive g-mr-20 s-fs-32 g-tac  {{info.status==-1?'s-fc-main':'s-fc-9'}} g-tac" lang="zh_CN" openType="getUserInfo">{{info.status==-1?'免费领取':info.status==2?'已领完':'已领取'}}</button>
+    </view>
+</view>

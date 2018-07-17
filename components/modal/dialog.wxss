@@ -1,0 +1,32 @@
+@import "../../app.wxss";
+
+@import "alert.wxss";
+
+.selector-content {
+    width: 600rpx;
+}
+
+.content {
+    min-height: 184rpx;
+    max-height: 712rpx;
+    overflow: auto;
+}
+
+.close {
+    right: 0rpx;
+    top: 0rpx;
+    padding: 20rpx;
+}
+
+.balance {
+    height: 696rpx;
+    overflow: auto;
+}
+
+.line-h-52 {
+    line-height: 52rpx;
+}
+
+.line-h-36 {
+    line-height: 36rpx;
+}

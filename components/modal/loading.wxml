@@ -1,0 +1,5 @@
+<view catch:touchstart="stop" class="trans-modal g-flex g-flex-center g-flex-v-center" hidden="{{!showLoading}}">
+    <view class="loading-container">
+        <view class="loading-content "></view>
+    </view>
+</view>

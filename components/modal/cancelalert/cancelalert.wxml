@@ -1,0 +1,11 @@
+<view catch:touchmove="stop" class="modal g-flex g-flex-center g-flex-v-center" hidden="{{!showAlert}}">
+    <view class="alert-content s-bgc-wt g-br g-tac fadeIn g-pt-50">
+        <view>
+            <text class="s-fs-32 {{info.result==2?'iconfont icon-success s-fc-sucs':''}} {{info.result==3?'iconfont icon-fail s-bdc-red':''}}"></text>
+            <text catchtap="see" class="g-pl-10 s-fs-30">{{info.result==2?'核销成功':'核销失败'}}</text>
+        </view>
+        <view class="s-fs-36 s-fb-m g-pt-20 g-pb-10">{{info.name}}</view>
+        <view class="s-fs-24 g-pb-40 s-fb-m">剩余<text class="s-fc-main">{{info.leftCounts!=null?info.leftCounts:info.leftDays}}</text>{{info.leftCounts!=null?'次':'天'}}</view>
+        <view catchtap="closeAlert" class="alert-footer g-bd-t s-fs-36 s-fb-m" data-result="{{info.result}}">知道了</view>
+    </view>
+</view>

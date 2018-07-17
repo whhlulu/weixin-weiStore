@@ -1,0 +1,14 @@
+<view class="g-pos-fx g-flex g-h-100 g-w100 s-bgc-wt foot-menu g-flex-v-center g-flex-between g-bd-t {{state.isIpx?'ipx-bottom':''}}" wx:if="{{option.show}}">
+    <button catchtap="toPath" class="g-h-100 g-flex-c1 g-tac" data-url="/pages/index/index">
+        <view class="iconfont s-fs-36 {{option.current=='index'?'icon-index-active s-fc-main':'icon-index s-fc-90'}}"></view>
+        <view class="s-fs-22 g-mt-8 {{option.current=='index'?'s-fc-main':'s-fc-90'}}">首页</view>
+    </button>
+    <button bindgetuserinfo="toPath" class="g-h-100 g-flex-c1 g-tac" data-url="/pages/order/list" openType="getUserInfo">
+        <view class="iconfont s-fs-36 {{option.current=='order'?'icon-order-active s-fc-main':'icon-order s-fc-90'}}"></view>
+        <view class="s-fs-22 g-mt-8 {{option.current=='order'?'s-fc-main':'s-fc-90'}}">订单</view>
+    </button>
+    <button bindgetuserinfo="toPath" class="g-h-100 g-flex-c1 g-tac" data-url="/pages/member/index" openType="getUserInfo">
+        <view class="iconfont s-fs-36 {{option.current=='mine'?'icon-mine-active s-fc-main':'icon-mine s-fc-90'}}"></view>
+        <view class="s-fs-22 g-mt-8 {{option.current=='mine'?'s-fc-main':'s-fc-90'}}">我的</view>
+    </button>
+</view>

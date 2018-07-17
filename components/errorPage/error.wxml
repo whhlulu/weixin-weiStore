@@ -1,0 +1,11 @@
+<view class="error-page g-flex g-flex-v g-flex-center g-flex-v-center g-tac s-bgc-wt g-h100" hidden="{{!option.show}}">
+    <view class="error-img s-pic" style="background-image: url({{option.page=='index'?'//cdn.weimob.com/saas/beauty/image/load-error-index.png':'//cdn.weimob.com/saas/beauty/image/load-error.png'}})"></view>
+    <view wx:if="{{option.page!='index'}}">
+        <view class="s-fs-28 s-fc-6 g-mt-30">{{option.msg=='service exception'?'加载失败':option.msg}}</view>
+        <view catchtap="reLaunch" class="error-btn  g-flex g-flex-v-center g-flex-center s-fs-28 s-fc-8 g-mt-60 g-br">回到首页</view>
+    </view>
+    <view wx:else>
+        <view class="s-fs-28 s-fc-6 g-mt-30">店铺已下架</view>
+        <view class="s-fs-24 s-fc-9 g-mt-20">请联系商家处理</view>
+    </view>
+</view>

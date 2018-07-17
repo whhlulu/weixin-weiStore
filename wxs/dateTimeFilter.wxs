@@ -1,0 +1,134 @@
+function getDateObject(date) {
+    var o = ({
+        "Y": date.getFullYear(),
+        "M": date.getMonth() + 1,
+        "D": date.getDate(),
+        "H": date.getHours(),
+        "i": date.getMinutes(),
+        "s": date.getSeconds(),
+        "w": date.getDay(),
+        "q": Math.floor((date.getMonth() + 3) / 3),
+        "S": date.getMilliseconds(),
+    });
+    if (o.M < 10) {
+        o.M = '0' + o.M
+    };
+    if (o.D < 10) {
+        o.D = '0' + o.D
+    };
+    if (o.H < 10) {
+        o.H = '0' + o.H
+    };
+    if (o.i < 10) {
+        o.i = '0' + o.i
+    };
+    if (o.s < 10) {
+        o.s = '0' + o.s
+    };
+    return (o)
+};
+
+function formatYMD(date) {
+    var o = getDateObject(getDate(date));
+    return (o.Y + '年' + o.M + '月' + o.D + '日')
+};
+
+function formatFull(date) {
+    var o = getDateObject(getDate(date));
+    return (o.Y + '年' + o.M + '月' + o.D + '日 ' + o.H + ':' + o.i + ':' + o.s)
+};
+
+function formatFullEn(date) {
+    var o = getDateObject(getDate(date));
+    return (o.Y + '-' + o.M + '-' + o.D + ' ' + o.H + ':' + o.i + ':' + o.s)
+};
+
+function formatFullWEn(date) {
+    var o = getDateObject(getDate(date));
+    var week = o.w;
+    var weekTips = "";
+    switch (week) {
+        case 1:
+            weekTips = "周一";
+            break;
+        case 2:
+            weekTips = "周二";
+            break;
+        case 3:
+            weekTips = "周三";
+            break;
+        case 4:
+            weekTips = "周四";
+            break;
+        case 5:
+            weekTips = "周五";
+            break;
+        case 6:
+            weekTips = "周六";
+            break;
+        case 0:
+            weekTips = "周日";
+            break;
+    };
+    return (weekTips + '(' + o.M + '.' + o.D + ')' + ' ' + o.H + ':' + o.i)
+};
+
+function formatYMDHIEn(date) {
+    var o = getDateObject(getDate(parseInt(date)));
+    return (o.Y + '-' + o.M + '-' + o.D + ' ' + o.H + ':' + o.i)
+};
+
+function formatYMDEn(date) {
+    var o = getDateObject(getDate(date));
+    return (o.Y + '-' + o.M + '-' + o.D)
+};
+
+function formatYMDDC(date) {
+    var o = getDateObject(getDate(date));
+    return (o.Y + '.' + o.M + '.' + o.D)
+};
+
+function cardColor(data) {
+    switch (data) {
+        case 1:
+            return ('rgb(119, 188, 112)');
+            break;
+        case 2:
+            return ('rgb(60, 171, 124)');
+            break;
+        case 3:
+            return ('rgb(100, 176, 209)');
+            break;
+        case 4:
+            return ('rgb(108, 155, 215)');
+            break;
+        case 5:
+            return ('rgb(161, 125, 202)');
+            break;
+        case 6:
+            return ('rgb(233, 188, 86)');
+            break;
+        case 7:
+            return ('rgb(227, 226, 229)');
+            break;
+        case 8:
+            return ('rgb(241, 161, 87)');
+            break;
+        case 9:
+            return ('rgb(228, 123, 96)');
+            break;
+        case 10:
+            return ('rgb(214, 93, 82)');
+            break;
+    }
+};
+module.exports = ({
+    formatYMD: formatYMD,
+    formatFull: formatFull,
+    formatFullEn: formatFullEn,
+    formatFullWEn: formatFullWEn,
+    formatYMDHIEn: formatYMDHIEn,
+    formatYMDEn: formatYMDEn,
+    cardColor: cardColor,
+    formatYMDDC: formatYMDDC,
+});

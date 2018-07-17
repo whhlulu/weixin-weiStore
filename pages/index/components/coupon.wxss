@@ -1,0 +1,29 @@
+@import "../../../app.wxss";
+
+.index-coupon {
+    background-image: url("//cdn.weimob.com/saas/beauty/image/coupon-bg-index.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 200rpx;
+}
+
+.index-coupon-content {
+    border-radius: 6rpx;
+}
+
+.receive {
+    width: 250rpx;
+    background-color: transparent;
+}
+
+.receive::after {
+    border: none;
+}
+
+.coupon-name {
+    padding: 0 48rpx;
+}
+
+.g-mt-15 {
+    margin-top: 15rpx;
+}

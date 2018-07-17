@@ -1,0 +1,26 @@
+@import "../../../app.wxss";
+
+.date-container {
+    white-space: nowrap;
+    width: 100%;
+    position: relative;
+}
+
+.date {
+    display: inline-block;
+    height: 100%;
+    width: 137rpx;
+    position: relative;
+    border-bottom: 4rpx solid transparent;
+    text-align: center;
+    padding-bottom: 16rpx;
+    line-height: 34rpx;
+}
+
+.date.active {
+    border-bottom: 4rpx solid #FF7800;
+}
+
+.date.active view {
+    color: #FF7800;
+}

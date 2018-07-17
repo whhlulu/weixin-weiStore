@@ -1,0 +1,265 @@
+@import "__wuBaseWxss__/6.wxss";
+/*! Import by _C[7], whose real path we cannot found. */
+@font-face {
+    font-family:'iconfont';src:url('//cdn.weimob.com/saas/beauty/icon/iconfont-20180622.eot');src:url('//cdn.weimob.com/saas/beauty/icon/iconfont-20180622.eot?#iefix') format('embedded-opentype'),url('//cdn.weimob.com/saas/beauty/icon/iconfont-20180622.woff') format('woff'),url('//cdn.weimob.com/saas/beauty/icon/iconfont-20180622.ttf') format('truetype'),url('//cdn.weimob.com/saas/beauty/icon/iconfont-20180622.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont"!important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-plus:before {
+    content: "\e600";
+}
+
+.icon-sub:before {
+    content: "\e601";
+}
+
+.icon-checked-small:before {
+    content: "\e6da";
+}
+
+.icon-kefu:before {
+    content: "\e628";
+}
+
+.icon-waimai:before {
+    content: "\e62b";
+}
+
+.icon-index-share:before {
+    content: "\e637";
+}
+
+.icon-close:before {
+    content: "\e604";
+}
+
+.icon-mine:before {
+    content: "\e643";
+}
+
+.icon-phone:before {
+    content: "\e645";
+}
+
+.icon-order-active:before {
+    content: "\e646";
+}
+
+.icon-position:before {
+    content: "\e647";
+}
+
+.icon-mine-active:before {
+    content: "\e648";
+}
+
+.icon-scenery:before {
+    content: "\e649";
+}
+
+.icon-index:before {
+    content: "\e64c";
+}
+
+.icon-index-active:before {
+    content: "\e64e";
+}
+
+.icon-parking:before {
+    content: "\e64f";
+}
+
+.icon-arrow:before {
+    content: "\e652";
+}
+
+.icon-wlan:before {
+    content: "\e653";
+}
+
+.icon-lock:before {
+    content: "\e654";
+}
+
+.icon-level:before {
+    content: "\e655";
+}
+
+.icon-money:before {
+    content: "\e656";
+}
+
+.icon-badge:before {
+    content: "\e657";
+}
+
+.icon-box:before {
+    content: "\e658";
+}
+
+.icon-question:before {
+    content: "\e659";
+}
+
+.icon-arrow-up:before {
+    content: "\e65a";
+}
+
+.icon-right:before {
+    content: "\e65b";
+}
+
+.icon-qrcode:before {
+    content: "\e65c";
+}
+
+.icon-checked:before {
+    content: "\e65d";
+}
+
+.icon-give-away:before {
+    content: "\e65e";
+}
+
+.icon-ship:before {
+    content: "\e65f";
+}
+
+.icon-waiting:before {
+    content: "\e662";
+}
+
+.icon-success:before {
+    content: "\e663";
+}
+
+.icon-fail:before {
+    content: "\e664";
+}
+
+.icon-order:before {
+    content: "\e666";
+}
+
+.icon-room:before {
+    content: "\e660";
+}
+
+.icon-smoking:before {
+    content: "\e661";
+}
+
+.icon-water:before {
+    content: "\e667";
+}
+
+.icon-sofa:before {
+    content: "\e668";
+}
+
+.icon-delete-font:before {
+    content: "\e669";
+}
+
+.icon-keyboard:before {
+    content: "\e66a";
+}
+
+.icon-food:before {
+    content: "\e665";
+}
+/*! Import end */
+page,view,block,text,image,swiper,swiper-item,scroll-view,input {
+    font-family: PingFangSC-Light;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    user-select: none;
+}
+
+page {
+    background-color: #f8f8f8;
+    height: 100%;
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    visibility: visible!important;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        transform: scale(0);
+        opacity: 0.0;
+    }
+
+    60% {
+        transform: scale(1.1);
+    }
+
+    80% {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: scale(0);
+        opacity: 0.0;
+    }
+
+    60% {
+        transform: scale(1.1);
+    }
+
+    80% {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.fix-iphonex-button {
+    bottom: 68rpx!important;
+    padding-bottom: 68rpx;
+}
+
+.fix-iphonex-button::after {
+    content: ' ';
+    position: fixed;
+    bottom: 0!important;
+    height: 68rpx!important;
+    width: 100%;
+    left: 0;
+    background: #fff;
+}
+
+.g-pb-100.fix-iphonex-button {
+    padding-bottom: 168rpx;
+}
+
+.ipx-bottom {
+    bottom: 68rpx!important;
+}

@@ -1,0 +1,9 @@
+<view class="modal g-flex g-flex-center g-flex-v-center " hidden="{{!show}}">
+    <view class="selector-content s-bgc-wt g-br g-pos-rt {{!isPadding?'g-pb-50':''}} fadeIn {{balancePb?'g-pb-40':''}}">
+        <text catchtap="close" class="g-pos-as close s-fc-c s-fs-30 iconfont icon-close"></text>
+        <view class="g-pa-40 s-fs-36 g-tac line-h-36 {{fontStyle}}" style="word-wrap:break-word">{{title}}</view>
+        <view class="{{height?'content':''}} g-pos-rt {{balance?'balance':''}}">
+            <slot></slot>
+        </view>
+    </view>
+</view>

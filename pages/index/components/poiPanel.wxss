@@ -1,0 +1,35 @@
+@import "../../../app.wxss";
+
+.panel-title {
+    padding-top: 35rpx;
+    padding-bottom: 35rpx;
+    letter-spacing: 0;
+}
+
+.panel-title.g-arrow:after {
+    right: 0;
+}
+
+.more {
+    line-height: 100rpx;
+}
+
+.more:active {
+    filter: brightness(.8);
+}
+
+.no-padding {
+    padding-top: 0!important;
+}
+
+.arrow.g-arrow {
+    padding-right: 20rpx;
+}
+
+.arrow.g-arrow:after {
+    right: 30rpx;
+}
+
+.g-pb-15 {
+    padding-bottom: 15rpx!important;
+}

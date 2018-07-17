@@ -1,0 +1,46 @@
+@import "../../app.wxss";
+
+.tab-header {
+    height: 80rpx;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 13rpx 20rpx 0 rgba(218,217,217,0.34);
+    z-index: 996;
+    padding: 0 40rpx;
+}
+
+.nav-text {
+    display: inline-block;
+    height: 100%;
+    line-height: 80rpx;
+    border-bottom: 4rpx solid transparent;
+    transition: all .3s ease;
+}
+
+.active .nav-text {
+    border-bottom: 4rpx solid #FF5050;
+}
+
+.tab-content-list {
+    height: 100%;
+    padding-top: 80rpx;
+}
+
+swiper {
+    overflow: hidden;
+    position: absolute;
+    height: auto;
+    top: 80rpx;
+    width: 100%;
+    bottom: 0rpx;
+}
+
+.pb-120 swiper {
+    padding-bottom: 100rpx;
+}
+
+.pb-20 swiper {
+    padding-bottom: 20rpx;
+}

@@ -1,0 +1,25 @@
+@import "../../../app.wxss";
+
+.service-item {
+    height: 230rpx;
+}
+
+.service-item.g-arrow:after {
+    right: 0;
+}
+
+.service-item .btn {
+    width: 140rpx;
+}
+
+.service-img {
+    height: 100%;
+    width: 346rpx;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.service-content {
+    padding-left: 26rpx;
+}

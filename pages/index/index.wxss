@@ -1,0 +1,72 @@
+.price {
+    letter-spacing: 0;
+}
+
+.receive-btn {
+    width: 170rpx;
+}
+
+.address-detail-container {
+    min-height: 100rpx;
+}
+
+.address-detail {
+    width: 492rpx;
+}
+
+.r-line {
+    width: 2rpx;
+    height: 20rpx;
+}
+
+.service-icon {
+    width: 240rpx;
+}
+
+.icon-container:after {
+    display: block;
+    content: '';
+    width: 33.3%;
+}
+
+.share-btn {
+    width: 90rpx;
+    height: 90rpx;
+    position: fixed;
+    bottom: 200rpx;
+    right: 20rpx;
+    text-align: center;
+    line-height: 90rpx;
+    background: rgba(255,255,255,0.9);
+    border: 1rpx solid #E0E0E0;
+    color: #666;
+    border-radius: 100%;
+}
+
+.share-btn .icon-index-share {
+    font-size: 40rpx;
+    color: #666;
+}
+
+.share-button button {
+    color: #333;
+}
+
+.share-button button::after {
+    border: none;
+}
+
+.btn-contact {
+    position: fixed;
+    font-size: 44rpx;
+    right: 20rpx;
+    bottom: 310rpx;
+    border-radius: 50%;
+    width: 90rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    background: rgba(255,255,255,0.9);
+    border: 1rpx solid #E0E0E0;
+    border-radius: 100%;
+    color: #666;
+}

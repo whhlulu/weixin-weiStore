@@ -1,0 +1,17 @@
+<view class="service-item g-flex g-flex-v-center g-mt-30">
+    <view class="service-img" style="background-image: url({{info.picUrl}})"></view>
+    <view class="g-flex-c1 g-flex g-flex-v g-flex-between g-flex-v-top g-h100 service-content">
+        <view>
+            <view class="s-fs-30 s-fls-0 g-text-line2">{{info.productName}}</view>
+            <view class="s-fs-24 s-fc-9 s-fls-0 g-text-line1-b">{{info.description}}</view>
+            <view>
+                <text class="s-fs-24 s-fc-main">¥</text>
+                <text class="s-fs-36 s-fls-0 g-ml-10 s-fc-main">{{info.salePrice||0}}</text>
+                <text class="g-ml-10 s-fc-9 s-fs-20" wx:if="{{info.specs&&info.specs.length>1}}">起</text>
+            </view>
+        </view>
+        <view class="g-w-140">
+            <button bindgetuserinfo="toReserve" catchtap="toReserve" class="btn mini primary g-br-m s-fs-28 g-pl-0 g-pr-0" lang="zh_CN" openType="getUserInfo">{{btnText}}</button>
+        </view>
+    </view>
+</view>

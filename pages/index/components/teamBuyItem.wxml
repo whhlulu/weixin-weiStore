@@ -1,0 +1,10 @@
+<view class="g-arrow item-content g-flex g-flex-v-center {{first!=='false'&&first!==false?'':'g-mt-30'}}">
+    <view class="item-img s-pic g-bd-a" style="background-image: url({{info.image}})"></view>
+    <view class="item-context g-flex g-flex-v g-flex-between g-flex-c1 g-pr-20">
+        <view class="s-fs-30 g-text-line2">{{info.name}}</view>
+        <view class="s-fs-30">
+            <text class="s-fc-main s-fs-36">¥{{info.price}}</text>
+            <text class="s-fc-9 s-fs-26 del-price" wx:if="{{info.marketPrice}}">¥{{info.marketPrice}}</text>
+        </view>
+    </view>
+</view>

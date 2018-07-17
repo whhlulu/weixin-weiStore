@@ -1,0 +1,7 @@
+<view class="g-flex g-flex-between g-tac technician-container {{technicianList.length<3?'tech-after':''}}">
+    <view catchtap="toEmployeeDetail" class="technician" data-id="{{item.id}}" wx:for="{{technicianList}}">
+        <view class="technician-img s-pic" style="background-image: url({{item.pic}})"></view>
+        <view class="s-fs-32 s-fls-0 g-mt-20">{{item.name}}</view>
+        <view class="technician-level s-fs-28 s-fls-0">{{item.job}}</view>
+    </view>
+</view>

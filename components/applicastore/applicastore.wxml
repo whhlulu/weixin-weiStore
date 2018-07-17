@@ -1,0 +1,3 @@
+<view class="g-pt-30 g-pl-30 g-pr-30 s-fs-28">
+    <view class="g-mr-20 g-wrap" style="display:inline-block;" wx:for="{{storeNames}}">{{item}}</view>
+</view>

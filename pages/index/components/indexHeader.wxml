@@ -1,0 +1,17 @@
+<view wx:if="{{mini===false||mini==='false'}}">
+    <view class="banner s-pic" style="background-image: url({{storeInfo.pics[0]||'//cdn.weimob.com/saas/beauty/image/store-logo-default.png'}})"></view>
+    <view catchtap="toStoreList" class="shop-info g-arrow s-bgc-wt g-flex  g-bd-b">
+        <view class="shop-img s-pic" style="background-image: url({{storeInfo.plogo}})" wx:if="{{storeInfo.plogo}}"></view>
+        <view class="g-flex-c1 shop-detail g-flex g-flex-v g-flex-center">
+            <text class="s-fc-3 s-fs-42 g-text-line2">{{storeInfo.storeName+storeInfo.branchName}}</text>
+            <text class="s-fc-9 s-fs-26 g-mt-20 price" wx:if="{{storeInfo.perPersonSpending}}">人均{{storeInfo.perPersonSpending}}元</text>
+        </view>
+    </view>
+</view>
+<view catchtap="toStoreList" class="g-pa-30 s-bgc-wt store-header-sm g-bd-b g-flex" wx:else>
+    <view class="banner s-pic" style="background-image: url({{storeInfo.pics[0]||'//cdn.weimob.com/saas/beauty/image/store-logo-default.png'}})"></view>
+    <view class="g-flex-c1 g-pl-20">
+        <view class="s-fls-0 s-fs-36  g-arrow  g-pr-50 g-text-line2">{{storeInfo.storeName+storeInfo.branchName}}</view>
+        <view class="s-fc-9 s-fs-26 g-mt-20 price" wx:if="{{storeInfo.perPersonSpending}}">人均{{storeInfo.perPersonSpending}}元</view>
+    </view>
+</view>

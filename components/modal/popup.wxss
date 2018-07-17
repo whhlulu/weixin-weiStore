@@ -1,0 +1,78 @@
+@import "../../__wuBaseWxss__/6.wxss";
+
+.modal {
+    transition: opacity .3s ease;
+}
+
+.popup-modal {
+    z-index: 998;
+}
+
+.popup {
+    max-height: 80%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    overflow: auto;
+}
+
+.popup {
+    animation-name: popup;
+    animation-duration: .2s;
+    animation-timing-function: ease-in-out;
+    visibility: visible!important;
+}
+
+@-webkit-keyframes popup {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes popup {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.popDown {
+    animation-name: popDown;
+    animation-duration: .2s;
+    animation-timing-function: ease-in-out;
+    visibility: visible!important;
+}
+
+@-webkit-keyframes popDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes popDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.timeheight {
+    max-height: none;
+    height: 76%;
+}

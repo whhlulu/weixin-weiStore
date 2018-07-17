@@ -1,0 +1,52 @@
+@import "../../app.wxss";
+
+@import "form.wxss";
+
+.number-selector-container {
+    height: 70rpx;
+    min-width: 165rpx;
+}
+
+.number-btn {
+    width: 80rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    background-color: #f5f5f5;
+    margin-left: 4rpx;
+}
+
+.number-content {
+    height: 70rpx;
+    line-height: 70rpx;
+    min-width: 80rpx;
+    padding: 0 10rpx;
+    background-color: #f5f5f5;
+    margin-left: 4rpx;
+}
+
+.input-placeholder {
+    font-size: 32rpx;
+    color: #CCC;
+}
+
+.sex-select {
+    width: 230rpx;
+}
+
+.input-tag {
+    width: 100rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.active {
+    background: #FFF5F3;
+}
+
+.phone-code {
+    width: 170rpx;
+    height: 60rpx;
+    background: #E0E0E0;
+    border-radius: 4rpx;
+    color: #fff;
+}

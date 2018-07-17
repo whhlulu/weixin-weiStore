@@ -1,0 +1,11 @@
+<view catchtap="cellClick" class="cell-item s-bgc-wt g-w100 s-fs-28 {{noPadding==='false'||noPadding===false?'g-pl-30':'no-padding'}} g-flex g-flex-v-center g-flex-between  {{noBorder===false||noBorder==='false'?'g-bd-b':''}}  {{disabled!=='false'&&disabled!==false?'disabled':''}} {{isLink!=='false'&&isLink!==false?'g-arrow':''}}">
+    <view class="cell-title {{titleCls}}">
+        <view class=" g-text-line1-b">
+            <text class="s-fs-36 iconfont {{icon}}" wx:if="{{icon}}"></text>
+            <text>{{title}}</text>
+        </view>
+    </view>
+    <view class="cell-content g-text-line1-b">
+        <view class="{{colorType?colorType:'s-fc-3'}}">{{content}}</view>
+    </view>
+</view>

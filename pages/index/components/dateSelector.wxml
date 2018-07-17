@@ -1,0 +1,7 @@
+<scroll-view scrollX class="date-container">
+    <view catchtap="weekClick" class="date {{selectDate.date==date.getDisplayDate(item).date?'active':''}}" data-date="{{date.getDisplayDate(item)}}" wx:for="{{30}}">
+        <view class="s-fs-28">{{date.getDisplayDate(item).week}}</view>
+        <view class="s-fs-28">{{date.getDisplayDate(item).date}}</view>
+    </view>
+</scroll-view>
+<wxs module="date" src="date.wxs" />

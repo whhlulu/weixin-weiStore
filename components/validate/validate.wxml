@@ -1,0 +1,13 @@
+<view class="s-fc-9 s-fs-32 s-bgc-wt">
+    <x-form id="phonenum-form">
+        <view class="g-bd-b g-flex g-flex-between g-flex-v-center g-h-110">
+            <view class="g-w100 g-flex g-felx-between g-flex-v-center g-pt-20 g-pb-20">
+                <input bindinput="validatePhone" class="phone-number g-flex-c1 s-fb-m" focus="{{isFocus}}" maxlength="11" placeholder="请输入手机号" placeholderStyle="color:#999;font-size:32rpx;" type="number" value="{{phoneValue}}"></input>
+                <view bindtap="sendCode" class="send-code s-fc-wt s-fs-28 {{isPass&&!codeDisabled?'s-bgc-main':'send-code-bg'}}">{{sendText}}</view>
+            </view>
+        </view>
+        <view class="g-w100 g-flex g-bd-b g-pt-20 g-pb-20 g-h-110 g-flex-v-center">
+            <input bindinput="getCode" class="phone-number g-flex-c1 s-fb-m" maxlength="6" placeholder="请输入验证码" placeholderStyle="color:#999;font-size:32rpx;" type="number" value="{{codeValue}}"></input>
+        </view>
+    </x-form>
+</view>

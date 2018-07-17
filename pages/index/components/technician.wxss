@@ -1,0 +1,18 @@
+@import "../../../app.wxss";
+
+.technician-img {
+    width: 218rpx;
+    height: 218rpx;
+    background-size: cover;
+}
+
+.technician-level {
+    line-height: 45rpx;
+    color: #151515;
+}
+
+.tech-after:after {
+    display: block;
+    content: '';
+    width: 33%;
+}

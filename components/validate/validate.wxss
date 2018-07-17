@@ -1,0 +1,17 @@
+@import "../../app.wxss";
+
+.phone-number {
+}
+
+.send-code {
+    width: 170rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    border-radius: 4rpx;
+}
+
+.send-code-bg {
+    background: #FF5050;
+    opacity: 0.4;
+}

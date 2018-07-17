@@ -1,0 +1,19 @@
+@import "../../__wuBaseWxss__/6.wxss";
+
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    visibility: visible!important;
+}
+
+.toast {
+    background-color: rgba(0,0,0,.7);
+    max-width: 80%;
+    min-width: 400rpx;
+}
+
+.toast.success {
+    background-color: #fff;
+    color: #333;
+}

@@ -1,0 +1,12 @@
+<view class="s-bgc-wt g-mt-20">
+    <view class="g-pr-30 g-pl-30  {{noBorder!==false&&noBorder!=='false'?'':'g-bd-b'}} panel-title {{isCoupon!=='false'&&isCoupon!==false?'g-pb-15':''}} g-flex g-flex-between g-flex-v-center {{moreText?'arrow g-arrow':''}}" wx:if="{{title}}">
+        <text class="s-fs-36">{{title}}</text>
+        <text catchtap="loadMore" class="s-fs-28 s-fc-9 g-pr-30">{{moreText}}</text>
+    </view>
+    <view class="panel-content {{isCoupon!=='false'&&isCoupon!==false?'g-pr-20 g-pl-20 ':'g-pr-30 g-pl-30'}} {{noBorder!==false&&noBorder!=='false'?'':'g-pt-30'}} {{title?'g-pt-30 g-pb-30':''}} {{noPading!==false&&noBorder!=='false'?'no-padding':''}}">
+        <slot></slot>
+    </view>
+    <view catchtap="loadMore" class="more g-h-100 g-tac s-fc-9 s-fs-28 g-ml-30 g-mr-30 {{title?'g-bd-t':''}} g-flex g-flex-v-center g-flex-center {{isCoupon!=='false'&&isCoupon!==false?'g-mt-20 ':''}} " wx:if="{{noMore===false||noMore==='false'}}">
+        {{moreFlg?'收起':'查看更多'}} <text class="iconfont {{moreFlg?'icon-arrow-up':'icon-arrow'}} s-fs-14 s-fc-9 g-ml-10"></text>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+@import "../../../__wuBaseWxss__/6.wxss";
+
+@import "../../../app.wxss";
+
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    visibility: visible!important;
+}
+
+.alert-content {
+    width: 80%;
+    transition: all ease 2s;
+    max-height: 80%;
+}
+
+.alert-footer {
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.alert-detail {
+}

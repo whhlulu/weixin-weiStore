@@ -1,0 +1,21 @@
+{
+    "usingComponents": {
+        "alert": "/components/modal/alert",
+        "loading": "/components/modal/loading",
+        "toast": "/components/modal/toast",
+        "error": "/components/errorPage/error",
+        "cell": "/components/cell/cell",
+        "x-button": "/components/button/button",
+        "poi-panel": "./components/poiPanel",
+        "product-item": "./components/teamBuyItem",
+        "pay-item": "./components/payItem",
+        "card-swiper": "./components/cardSwiper",
+        "service-item": "./components/serviceItem",
+        "technician": "./components/technician",
+        "coupon": "./components/coupon",
+        "foot-menu": "/components/bar/footMenu",
+        "container": "/components/containers/container",
+        "index-header": "./components/indexHeader",
+        "popup": "/components/modal/popup"
+    }
+}

@@ -1,0 +1,30 @@
+@import "../../app.wxss";
+
+.select-item {
+    width: 48%;
+    min-height: 60rpx;
+    padding: 0 20rpx;
+    border-width: 2rpx;
+    float: left;
+    margin-bottom: 20rpx;
+}
+
+.select-item.active {
+    background-color: #FFF5F3;
+}
+
+.block-content {
+    padding: 30rpx 90rpx;
+    max-height: 360rpx;
+    overflow: auto;
+}
+
+.block-content:after {
+    display: block;
+    width: 120rpx;
+    content: '';
+}
+
+.no-padding {
+    padding: 0;
+}

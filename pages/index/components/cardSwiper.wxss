@@ -1,0 +1,43 @@
+@import "../../../app.wxss";
+
+.swiper {
+    height: 290rpx;
+}
+
+.swiper-container {
+    white-space: nowrap;
+    width: 100%;
+}
+
+.active-even {
+    transition: all .3s ease;
+}
+
+.swiper-wapper {
+    display: inline-block;
+    height: 260rpx;
+    width: 543rpx;
+    padding-right: 30rpx;
+    position: relative;
+}
+
+.swiper-inner {
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 3rpx 10rpx 0 rgba(0,0,0,0.10);
+    background-repeat: no-repeat;
+    background-size: 90% auto;
+    background-position: center center;
+}
+
+.swiper-inner .btn {
+    width: 136rpx;
+}
+
+.active {
+    box-shadow: 0 6rpx 20rpx 0 rgba(0,0,0,0.30);
+}
+
+.card-type {
+    width: 100rpx;
+}

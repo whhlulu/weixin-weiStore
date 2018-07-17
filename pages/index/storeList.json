@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+        "loading": "/components/modal/loading",
+        "toast": "/components/modal/toast",
+        "error": "/components/errorPage/error",
+        "cell": "/components/cell/cell",
+        "foot-menu": "/components/bar/footMenu",
+        "dialog": "/components/modal/dialog",
+        "select-block": "/components/field/selectBlock",
+        "container": "/components/containers/container"
+    }
+}

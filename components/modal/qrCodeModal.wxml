@@ -1,0 +1,18 @@
+<view catch:touchmove="stopScroll" class="modal g-flex g-flex-center g-flex-v-center " hidden="{{!options.show}}">
+    <view class="selector-content  g-br   fadeIn g-tac">
+        <view class="s-bgc-wt g-pos-rt code-top">
+            <text catchtap="close" class="g-pos-as close s-fc-c s-fs-30 iconfont icon-close"></text>
+            <view class="s-fs-32 line-h-45  g-pt-80 {{options.showSur?'':'g-pb-50'}}">{{options.title}}</view>
+            <view class="s-fs-24 s-fls-0 g-pa-10 line-h-32" wx:if="{{options.showSur}}">剩余<text class="s-fc-main">{{options.surPlus}}</text>{{options.type=='3'?'次':'天'}}
+            </view>
+            <view class="s-fs-24 s-fls-0 s-fc-9 g-pb-30 line-h-32" wx:if="{{options.showSur}}">有效期至{{options.expiry}}</view>
+        </view>
+        <view class="circle-line-trans" style="background-image: url(//cdn.weimob.com/saas/beauty/image/circle-line.png)"></view>
+        <view class="s-bgc-wt g-pb-60 code-bottom">
+            <view class="g-pa-50 g-flex g-flex-center g-pb-20 g-pt-40">
+                <view class="qr-code s-pic" style="background-image: url({{qrcode}})"></view>
+            </view>
+            <view class="s-fs-36 line-h-48">{{options.code}}</view>
+        </view>
+    </view>
+</view>

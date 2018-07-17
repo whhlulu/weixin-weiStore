@@ -1,0 +1,3 @@
+<view class="btn s-fs-32 {{mini!=='false'&&mini!==false?'s-fs-28 mini g-pl-20 g-pr-20':'s-fs-32'}} {{md!=='false'&&md!==false?'md ':''}} g-br-m {{type}} {{disabled!=='false'&&disabled!==false?'disabled':''}} {{plain!=='false'&&plain!==false?'plain':''}} {{appoint!=='false'&&appoint!==false?'appoint':''}}">
+    <slot></slot>
+</view>

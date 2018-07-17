@@ -1,0 +1,22 @@
+<view bind:touchend="handUp" bind:touchstart="handSown" catch:touchmove="handMove" class="swiper">
+    <view class="swiper-container g-pa-10 {{moving?'':'active-even'}}" style="transform: translateX({{-transaction+'px'}})">
+        <view catchtap="toCardDetail" class="swiper-wapper" data-item="{{item}}" wx:for="{{cardList}}">
+            <view class="swiper-inner g-pa-30 {{index==active?'active':''}}" style="background-image: url({{item.productType==3?'//cdn.weimob.com/saas/beauty/image/count-card.png':'//cdn.weimob.com/saas/beauty/image/cycle-card.png'}})">
+                <view class="g-flex g-flex-between g-flex-v-center">
+                    <view class="s-fs-34 s-fls-0 g-pr-20 g-flex-c1 g-text-line1">{{item.name}}</view>
+                    <view class="s-fs-24 s-fc-9 s-fls-0">{{item.productType==3?'计次卡':'周期卡'}}</view>
+                </view>
+                <view class="s-fs-28 s-fls-0 g-h-100 g-pt-10">{{item.productType==3?item.useCounts+'次卡':item.expDayCount+'天'}}</view>
+                <view class="g-flex g-flex-v-center g-flex-between">
+                    <view>
+                        <text class="s-fs-24 s-fc-main">¥</text>
+                        <text class="s-fs-36 s-fls-0 g-ml-10 s-fc-main">{{item.salePrice}}</text>
+                    </view>
+                    <view class="g-w-140">
+                        <button bindgetuserinfo="toCardDetailBuy" catchtap="toCardDetailBuy" class="btn primary plain mini s-fs-28 g-br-m g-tac g-pl-0 g-pr-0" data-item="{{item}}" lang="zh_CN" openType="getUserInfo">立即购买</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

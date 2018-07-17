@@ -1,0 +1,11 @@
+@import "../../../app.wxss";
+
+@import "../../../components/button/button.wxss";
+
+.pay-info {
+    width: 480rpx;
+}
+
+.pay-item .pay-btn {
+    width: 170rpx;
+}

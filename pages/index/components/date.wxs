@@ -1,0 +1,41 @@
+function getDisplayDate(day) {
+    var sourceDate = getDate();
+    var sourceTime = sourceDate.getTime();
+    var newTime = sourceTime + 86400000 * day;
+    var newDate = getDate(newTime);
+    var month = newDate.getUTCMonth() + 1;
+    var week = '今天';
+    if (day > 0) {
+        week = newDate.getDay();
+        switch (week) {
+            case 0:
+                week = "周日";
+                break;
+            case 1:
+                week = "周一";
+                break;
+            case 2:
+                week = "周二";
+                break;
+            case 3:
+                week = "周三";
+                break;
+            case 4:
+                week = "周四";
+                break;
+            case 5:
+                week = "周五";
+                break;
+            case 6:
+                week = "周六";
+                break;
+        }
+    };
+    return (({
+        date: month + '-' + newDate.getDate(),
+        week: week,
+        time: newTime,
+        weekDay: newDate.getDay() + 1,
+    }))
+};
+module.exports.getDisplayDate = getDisplayDate;

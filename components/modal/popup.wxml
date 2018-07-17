@@ -1,0 +1,5 @@
+<view catchtap="close" class="modal popup-modal" hidden="{{!show}}">
+    <view catchtap="contentClick" class=" {{!show?'popDown':'popup'}} {{timeClass?'timeheight':''}}">
+        <slot></slot>
+    </view>
+</view>

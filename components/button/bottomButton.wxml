@@ -1,0 +1,8 @@
+<view class="subscribe-bottom g-flex g-bd-t {{state.isIpx?'ipx-bottom':''}}">
+    <view class="g-flex-c1 price g-ml-30">
+        <text class="s-fc-main s-fs-36">¥{{salePrice}}</text>
+        <text class="original-price s-fs-28" wx:if="{{originalPrice}}">¥{{originalPrice}}</text>
+        <text class="tips s-fs-28" wx:if="{{buttonType!='团购'&&appointType===1}}">(到店付款)</text>
+    </view>
+    <button bindgetuserinfo="toDetailPage" class="go-order  s-fs-30  btn  primary {{stock==0?'disabled':'s-fc-main s-bgc-main'}}" lang="zh_CN" openType="getUserInfo">{{buttonText}}</button>
+</view>

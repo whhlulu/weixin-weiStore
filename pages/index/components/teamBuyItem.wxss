@@ -1,0 +1,23 @@
+@import "../../../app.wxss";
+
+.item-img,.item-context {
+    height: 160rpx;
+    width: 160rpx;
+}
+
+.item-content.g-arrow:after {
+    right: 0rpx;
+}
+
+.item-context view:first-child {
+    padding-left: 26rpx;
+}
+
+.item-context view:last-child {
+    padding-left: 37rpx;
+}
+
+.del-price {
+    padding-left: 10rpx;
+    text-decoration: line-through;
+}

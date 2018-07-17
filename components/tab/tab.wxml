@@ -1,0 +1,14 @@
+<view class="g-h100 ">
+    <view class="tab-header s-bgc-wt g-flex g-flex-v-center {{tabList.length>=4?'g-flex-between':'g-flex-center'}} ">
+        <view catchtap="tabChange" class="tab-nav  g-tac {{active==item.name?'active':''}} {{tabList.length>=4?'':'g-flex-c1'}}" data-index="{{index}}" data-name="{{item.name}}" wx:for="{{tabList}}">
+            <view class="nav-text s-fs-28 {{active==item.name?'s-fc-main':''}}">{{item.title}}</view>
+        </view>
+    </view>
+    <view class="tab-content-list">
+        <swiper bindchange="swiperChange" circular="{{false}}" current="{{current}}" duration="{{200}}">
+            <swiper-item wx:for="{{tabList}}">
+                <slot name="{{item.name}}"></slot>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>

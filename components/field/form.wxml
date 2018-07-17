@@ -1,0 +1,3 @@
+<view class="form">
+    <slot></slot>
+</view>

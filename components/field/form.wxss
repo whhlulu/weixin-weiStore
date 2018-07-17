@@ -1,0 +1,14 @@
+@import "../../__wuBaseWxss__/6.wxss";
+
+.form .input-item:last-child {
+    border-bottom: none;
+}
+
+.input-item {
+    min-height: 110rpx;
+}
+
+.input-title {
+    width: 146rpx;
+    padding-right: 10rpx;
+}

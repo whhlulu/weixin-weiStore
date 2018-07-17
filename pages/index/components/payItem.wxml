@@ -1,0 +1,12 @@
+<view class="pay-item g-h-140 s-bgc-wt g-pt-30 g-pb-30 g-flex g-flex-between g-flex-v-center {{noBorder==='false'||noBorder===false?'g-bd-b':''}} {{first!=='false'&&first!==false?'':''}}">
+    <view class=" g-flex g-flex-v g-flex-between pay-info">
+        <view class="s-fs-36 s-fls-0 g-text-line1-b">{{info.discountContent}}</view>
+        <view class="s-fs-28 s-fc-9 s-fls-0 g-text-line1-b">{{info.discountTime}}</view>
+    </view>
+    <view class="pay-btn" wx:if="{{info.status}}">
+        <button bindgetuserinfo="toPay" class="btn mini g-br-m primary s-fs-30" lang="zh_CN" openType="getUserInfo">买单</button>
+    </view>
+    <view class="s-fc-9 s-fs-28" wx:else>
+        未开始
+    </view>
+</view>

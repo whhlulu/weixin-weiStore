@@ -1,0 +1,58 @@
+<view class="g-w100 g-flex g-flex-between g-flex-v-center {{noPadding==='false'||noPadding===false?'g-pl-20 g-pr-20 g-pa-10 ':'no-padding'}} {{grey==='false'||noPadding===false?'':'s-fc-9'}}  {{noBorder!=='false'&&noBorder!==false?'':'g-bd-b'}} s-fs-28 input-item">
+    <view class="input-title {{grey!==false&&grey!=='false'?'s-fb-m s-fc-9':''}}" wx:if="{{title}}"> {{title}}
+    </view>
+    <view class="input-content g-flex-c1 {{type=='address'||type=='date'||type=='selector'?'g-arrow':''}} {{paddingRight!=='false'&&paddingRight!==false?'g-pr-30':''}}">
+        <input bindinput="valueChange" class="g-w100 {{textAlign==='right'?'g-tar':''}} {{grey==='false'||noPadding===false?'':'s-fc-9'}}  s-fb-m" maxlength="{{length}}" placeholder="{{placeholder}}" placeholderStyle="color:#ccc;font-size:32rpx;" value="{{inputValue}}" wx:if="{{type=='text'}}"></input>
+        <input bindinput="valueChange" class="g-w100 {{textAlign==='right'?'g-tar':''}} {{grey==='false'||noPadding===false?'':'s-fc-9'}}  s-fb-m" placeholder="{{placeholder}}" placeholderStyle="color:#ccc;font-size:32rpx;" type="number" value="{{inputValue}}" wx:elif="{{type=='phone'}}"></input>
+        <input bindinput="valueChange" class="g-w100 {{textAlign==='right'?'g-tar':''}} {{grey==='false'||noPadding===false?'':'s-fc-9'}}  s-fb-m" placeholder="{{placeholder}}" placeholderStyle="color:#ccc;font-size:32rpx;" type="number" value="{{inputValue}}" wx:elif="{{type=='int'}}"></input>
+        <input bindinput="valueChange" class="g-w100 {{textAlign==='right'?'g-tar':''}} {{grey==='false'||noPadding===false?'':'s-fc-9'}}  s-fb-m" placeholder="{{placeholder}}" placeholderStyle="color:#ccc;font-size:32rpx;" type="digit" value="{{inputValue}}" wx:elif="{{type=='float'||type=='double'}}"></input>
+        <picker bindchange="valueChange" mode="region" value="{{inputValue}}" wx:elif="{{type=='address'}}">
+            <view class="{{grey==='false'||noPadding===false?'':'s-fc-9'}}  s-fb-m" wx:if="{{inputValue.length}}">
+                {{inputValue[0]}}，{{inputValue[1]}}，{{inputValue[2]}}
+            </view>
+            <view wx:else>
+                <text class="s-fc-c s-fs-32">{{placeholder}}</text>
+            </view>
+        </picker>
+        <picker bindchange="valueChange" mode="date" value="{{inputValue}}" wx:elif="{{type=='date'}}">
+            <view class="{{grey==='false'||noPadding===false?'':'s-fc-9'}}  s-fb-m" wx:if="{{inputValue}}">
+                {{inputValue}}
+            </view>
+            <view wx:else>
+                <text class="s-fc-c s-fs-32">{{placeholder}}</text>
+            </view>
+        </picker>
+        <picker bindchange="valueChange" mode="selector" range="{{options}}" rangeKey="{{key}}" value="{{inputValue}}" wx:elif="{{type=='select'}}">
+            <view class="{{grey==='false'||noPadding===false?'':'s-fc-9'}}  s-fb-m" wx:if="{{inputValue}}">
+                <text wx:if="{{key}}"> {{options[inputValue][key]}}</text>
+                <text wx:else> {{options[inputValue]}}</text>
+            </view>
+            <view wx:else>
+                <text class="s-fc-c s-fs-32">{{placeholder}}</text>
+            </view>
+        </picker>
+        <view class="g-flex g-flex-between g-flex-v-center" wx:elif="{{type=='switch'}}">
+            <text class="s-fc-c s-fs-32">{{placeholder}}</text>
+            <switch bindchange="{{valueChange}}" checked="{{inputValue}}"></switch>
+        </view>
+        <view class="g-flex g-flex-between g-flex-v-center" wx:elif="{{type=='number'}}">
+            <text class="s-fc-c s-fs-32">{{placeholder}}</text>
+            <view class="number-selector-container  g-flex g-flex-between g-flex-v-center s-fc-3 ">
+                <view catchtap="sub" class="number-btn g-tac s-fs-30 s-fb iconfont icon-sub {{inputValue==min?'s-fc-c':'s-fc-main'}}"></view>
+                <view class="number-content g-flex-c1 g-tac s-fb s-fs-30 s-fc-6  g-flex-v-center">{{inputValue}}</view>
+                <view catchtap="plus" class="number-btn g-tac s-fs-30 s-fb iconfont icon-plus {{inputValue==max?'s-fc-c':'s-fc-main'}}"></view>
+            </view>
+        </view>
+        <view class="g-flex g-flex-between g-flex-v-center" wx:elif="{{type=='text-sex'}}">
+            <input bindinput="valueChange" class="g-w100 {{textAlign==='right'?'g-tar':''}} {{grey==='false'||noPadding===false?'':'s-fc-9'}}  s-fb-m" data-type="sex" placeholder="{{placeholder}}" placeholderStyle="color:#ccc;font-size:32rpx;"></input>
+            <view class="g-flex g-flex-v-center g-flex-between sex-select">
+                <view catchtap="checkSex" class="input-tag s-fc-6 s-fs-24 s-fb-m g-bd-a g-br-m g-tac {{sex==0?'s-bdc-main s-fc-main active':''}}" data-value="0">女士</view>
+                <view catchtap="checkSex" class="input-tag s-fc-6 s-fs-24 s-fb-m g-bd-a g-br-m g-tac g-ml-30 {{sex==1?'s-bdc-main s-fc-main active':''}}" data-value="1">先生</view>
+            </view>
+        </view>
+        <view class="g-flex g-flex-between g-flex-v-center" wx:elif="{{type=='phone-code'}}">
+            <input bindinput="valueChange" class="{{textAlign==='right'?'g-tar':''}} s-fc-3 s-fb-m" placeholder="{{placeholder}}" placeholderStyle="color:#999;font-size:32rpx;" type="number"></input>
+            <view class="phone-code g-flex g-flex-center g-flex-v-center s-fs-28" wx:if="{{noCode}}">发送验证码</view>
+        </view>
+    </view>
+</view>
