@@ -1,0 +1,23 @@
+<view class="g-mt-20 g-pa-30 s-bgc-wt order-info">
+    <view class="g-flex g-flex-v-center s-fs-26 g-mt-15 line-h-36" wx:if="{{info.orderNumber}}">
+        <text class="s-fc-9 g-w-140 s-fb-m">订单编号：</text>
+        <text class="s-fc-9 s-fb-m g-pl-10">{{info.orderNumber}}</text>
+    </view>
+    <view class="g-flex g-flex-v-center s-fs-26 g-mt-15 line-h-36" wx:if="{{info.orderTime}}">
+        <text class="s-fc-9 g-w-140 s-fb-m">下单时间：</text>
+        <text class="s-fc-9 s-fb-m g-pl-10">{{dateFilter.formatFullEn(info.orderTime)}}</text>
+    </view>
+    <view class="g-flex g-flex-v-center s-fs-26 g-mt-15 line-h-36" wx:if="{{info.payTime}}">
+        <text class="s-fc-9 g-w-140 s-fb-m">支付时间：</text>
+        <text class="s-fc-9 s-fb-m g-pl-10">{{dateFilter.formatFullEn(info.payTime)}}</text>
+    </view>
+    <view class="g-flex g-flex-v-center s-fs-26 g-mt-15 line-h-36" wx:if="{{info.payMethod}}">
+        <text class="s-fc-9 g-w-140 s-fb-m">支付方式：</text>
+        <text class="s-fc-9 s-fb-m g-pl-10">{{info.payMethod}}</text>
+    </view>
+    <view class="g-flex g-flex-v-center s-fs-26 g-mt-15 line-h-36" wx:if="{{info.payStore}}">
+        <text class="s-fc-9 g-w-140 s-fb-m">支付门店：</text>
+        <text class="s-fc-9 s-fb-m g-pl-10">{{info.payStore}}</text>
+    </view>
+</view>
+<wxs module="dateFilter" src="../../../../wxs/dateTimeFilter.wxs" />

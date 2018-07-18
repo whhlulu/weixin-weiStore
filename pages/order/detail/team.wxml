@@ -1,0 +1,194 @@
+<container id="container">
+    <view wx:if="{{loaded}}">
+        <order-status-header detail="{{orderDetail.statusDesc}}" icon="{{iconStyle}}" title="{{orderDetail.statusName}}" wx:if="{{orderDetail.isBaseOrderRefund||orderDetail.status===0||orderDetail.status===3}}"></order-status-header>
+        <order-detail-item orderItem="{{orderItem}}"></order-detail-item>
+        <block wx:if="{{cardDetails&&cardDetails.length>0}}">
+            <view class="g-pl-30 g-pr-30 s-bgc-wt g-mt-20 g-pb-30" wx:if="{{orderDetail.isBaseOrderRefund&&(orderDetail.status===4||orderDetail.status===5||orderDetail.status===6)}}">
+                <view class="s-fs-32 coupon">{{orderDetail.cardTypeName}}</view>
+                <view class="g-bd-a g-br-l card-item">
+                    <view class="g-h-104  g-pa-20 g-flex">
+                        <view class="g-flex-c1">
+                            <view>
+                                <text class="s-fs-32">{{orderDetail.statusName}}({{cardDetails.length}}张)</text>
+                            </view>
+                            <view class="s-fs-24">
+                                <text class="s-fc-9">有效期至 {{dateFilter.formatYMDEn(orderDetail.validityEnd)}}</text>
+                            </view>
+                        </view>
+                        <view>
+                            <text catchtap="toRefundDetail" class="s-fs-24 g-flex-c1 g-tar s-fc-main arrow-right padding-right" data-refundno="{{orderDetail.refundNo}}">退款详情</text>
+                        </view>
+                    </view>
+                    <view class="circle-line"></view>
+                    <view class="g-h-104  g-pa-20">
+                        <view wx:for="{{cardDetails}}">
+                            <text class="s-fc-9 s-fs-24">券号</text>
+                            <text class="s-fs-32 s-fc-9 g-pl-20 coupon-number">{{item.cardCode}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="g-pl-30 g-pr-30 s-bgc-wt g-mt-20 g-pb-30" wx:if="{{!orderDetail.isBaseOrderRefund}}" wx:for="{{cardDetails}}">
+                <view class="s-fs-32 coupon">{{item.cardName}}</view>
+                <view class="g-bd-a g-br-l card-item g-mb-30">
+                    <view class="g-h-104  g-pa-20">
+                        <view class="g-flex">
+                            <text class="s-fs-32 g-flex-c1">{{item.statusName}}(1张)</text>
+                            <text catchtap="toRefundDetail" class="s-fs-24 g-flex-c1 g-tar s-fc-main arrow-right padding-right" data-refundno="{{item.refundNo}}" wx:if="{{item.refundNo!=null&&item.refundNo!='null'&&item.refundNo!=undefined}}">退款详情</text>
+                            <text catchtap="shoWqrCode" class="s-fs-40 s-fc-6 iconfont icon-qrcode g-flex-c1 g-tar" data-cardcode="{{item.cardCode}}" data-cardname="{{orderDetail.cardName}}" wx:if="{{item.status===1}}"></text>
+                        </view>
+                        <view class="s-fs-24" wx:if="{{item.status===2}}">
+                            <text class="s-fc-9">{{dateFilter.formatYMDEn(item.usedTime)}} 使用</text>
+                        </view>
+                        <view class="s-fs-24" wx:elif="{{item.status===3}}">
+                            <text class="s-fc-9">{{dateFilter.formatYMDEn(item.expiredTime)}} 过期</text>
+                        </view>
+                        <view class="s-fs-24" wx:else>
+                            <text class="s-fc-9">有效期至 {{dateFilter.formatYMDEn(orderDetail.validityEnd)}}</text>
+                        </view>
+                    </view>
+                    <view class="circle-line"></view>
+                    <view class="g-h-104  g-pa-20">
+                        <view>
+                            <text class="s-fc-9 s-fs-24">券号</text>
+                            <text class="s-fs-32 g-pl-20 {{item.status===1?'s-fc-3':'coupon-number s-fc-9 '}}">{{item.cardCode}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="g-mt-20 s-bgc-wt">
+            <view class="g-flex g-pa-30">
+                <text class="g-flex-c1 s-fs-28">订单编号</text>
+                <text class="g-flex-c1 g-tar s-fs-28">{{orderDetail.orderNo}}</text>
+            </view>
+            <view class="g-flex g-pl-30 g-pr-30 g-pb-30">
+                <text class="g-flex-c1 s-fs-28" wx:if="{{orderDetail.status===0||orderDetail.status===3}}">下单时间</text>
+                <text class="g-flex-c1 s-fs-28" wx:else>支付时间</text>
+                <text class="g-flex-c1 g-tar s-fs-28" wx:if="{{orderDetail.status===0||orderDetail.status===3}}">{{dateFilter.formatFullEn(orderDetail.createTime)}}</text>
+                <text class="g-flex-c1 g-tar s-fs-28" wx:else>{{dateFilter.formatFullEn(orderDetail.payTime)}}</text>
+            </view>
+            <view class="g-flex g-pl-30 g-pr-30 g-pb-30">
+                <text class="g-flex-c1 s-fs-28">购买数量</text>
+                <text class="g-flex-c1 g-tar s-fs-28">{{orderDetail.cardNumber}}</text>
+            </view>
+            <view class="g-pl-30 g-pr-30 g-tar">
+                <view class="pay-btn g-bd-d s-fc-3 s-fs-36">
+                    <text class="s-fs-32 need-pay" wx:if="{{orderDetail.status===0||orderDetail.status===3}}">需付款</text>
+                    <text class="s-fs-32 need-pay" wx:else>实付</text>
+                    <text class="s-fs-40 s-fc-main">¥{{orderDetail.orderAmount}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="g-mt-20 g-flex s-bgc-wt g-pl-30 g-pr-30 return-service s-bgc-wt">
+            <text class="s-fs-28">退款服务</text>
+            <view class="g-flex-c1 g-tar s-fb-m ">
+                <view class="s-fs-24 s-fc-9" wx:if="{{orderDetail.isRefundAnytime==0&&orderDetail.isRefundAfterExpired==0}}">商家不支持退款</view>
+                <view class="s-fs-24" wx:else>
+                    <block wx:if="{{orderDetail.isRefundAnytime==1}}">
+                        <text class="iconfont icon-right s-fc-br s-fs-22 any-time"></text>
+                        <text class="s-fb-m s-fc-br g-flex-c1">随时退</text>
+                    </block>
+                    <block wx:elif="{{orderDetail.isRefundAnytime==0}}">
+                        <text class="iconfont icon-right s-fc-9 s-fs-22 any-time"></text>
+                        <text class="s-fb-m s-fc-9 g-flex-c1">随时退</text>
+                    </block>
+                    <block wx:if="{{orderDetail.isRefundAfterExpired==1}}">
+                        <text class="iconfont icon-right s-fc-br s-fs-22  any-time"></text>
+                        <text class="s-fb-m s-fc-br g-flex-c1">过期退</text>
+                    </block>
+                    <block wx:elif="{{orderDetail.isRefundAfterExpired==0}}">
+                        <text class="iconfont icon-right s-fc-9 s-fs-22 any-time"></text>
+                        <text class="s-fb-m s-fc-9 g-flex-c1">过期退</text>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <view bindtap="showMoreDetail" class="g-mt-20 s-bgc-wt g-pl-30 g-pr-30">
+            <view class="g-bd-b g-flex coupon-detail">
+                <text class="g-flex-c1 s-fs-32">券详情</text>
+                <text class="g-flex-c1 g-tar s-fs-28 s-fc-9 find-more">{{moreFlg?'收起':'查看更多'}}</text>
+                <text class="iconfont {{moreFlg?'icon-arrow-up':'icon-arrow'}} s-fc-9 s-fs-14"></text>
+            </view>
+        </view>
+        <view class="s-fs-28 s-bgc-wt g-pl-30 g-pt-30" wx:if="{{moreFlg}}">
+            <view class="s-fc-9 s-fb-m">优惠说明</view>
+            <view class="g-pt-10">
+                <text class="word-wrap">{{cardTemplate.privilege}}</text>
+            </view>
+        </view>
+        <view class="s-fs-28 s-bgc-wt g-pl-30 g-pt-20" wx:if="{{!moreFlg||moreFlg}}">
+            <view class="s-fc-9 s-fb-m">有效日期</view>
+            <view class="g-pt-10 {{!moreFlg?'g-pb-30':''}}">{{cardTemplate.validTimeDesc}}</view>
+        </view>
+        <view class="s-fs-28 s-bgc-wt g-pl-30 g-pt-20" wx:if="{{moreFlg&&!!cardTemplate.availableTimeRange}}">
+            <view class="s-fc-9 s-fb-m">可用时段</view>
+            <view class="g-pt-10">{{cardTemplate.availableTimeRange}}</view>
+        </view>
+        <view class="s-fs-28 s-bgc-wt g-pl-30 g-pt-20" wx:if="{{moreFlg&&!!cardTemplate.useNotice}}">
+            <view class="s-fc-9 s-fb-m  ">使用须知</view>
+            <text class="g-pt-10 word-wrap">{{cardTemplate.useNotice}}</text>
+        </view>
+        <view class="s-fs-28 s-bgc-wt g-pl-30 g-pt-20" wx:if="{{moreFlg&&!!cardTemplate.servicePhone}}">
+            <view class="s-fc-9 s-fb-m">商家电话</view>
+            <view class="s-fb-m g-pt-10">{{cardTemplate.servicePhone}}</view>
+        </view>
+        <view class="s-bgc-wt {{moreFlg?'g-pb-50':''}}"></view>
+        <view class="g-mt-20" wx:if="{{cardTemplate.isAllStores==false}}">
+            <cell isLink noBorder bind:cellClick="seeStore" title="适用门店({{cardTemplate.storesSize}}家）"></cell>
+        </view>
+        <view class="g-mt-20" wx:if="{{cardTemplate.isAllStores==true}}">
+            <view class="g-pl-30 s-bgc-wt g-h-100 s-fs-32 all-stores">
+                <text>适用门店</text>
+                <text class="all-stores-text">(全部可用)</text>
+            </view>
+        </view>
+        <view class="blank-padding  {{state.isIpx?'ipx-bottom':''}}" wx:if="{{orderDetail.status==0||orderDetail.refundableNumber>0}}"></view>
+        <view class="bottom-button s-bgc-wt g-flex g-bd-b  {{state.isIpx?'ipx-bottom':''}}" wx:if="{{orderDetail.status==0||orderDetail.refundableNumber>0}}">
+            <view class="g-flex-c1 s-fc-main price g-pl-30">
+                <text class="s-fc-main" wx:if="{{orderDetail.status==0}}">¥{{orderDetail.orderAmount}}</text>
+            </view>
+            <view catchtap="goPay" class="g-tar s-bgc-main go-pay g-br s-fc-wt s-fb g-mt-20 g-mr-30 s-fs-28" wx:if="{{orderDetail.status==0&&isShow}}">去支付 {{mm}}:{{ss}}</view>
+            <view class="g-tar s-bgc-8 go-pay g-br s-fc-wt s-fb g-mt-20 g-mr-30 s-fs-28" wx:if="{{orderDetail.status==0&&!isShow}}">逾期未支付</view>
+            <view bindtap="applyRefund" class="g-tar s-fc-6 s-fs-28 refund-btn g-mt-20 g-mr-30 g-br" wx:if="{{orderDetail.refundableNumber>0&&orderDetail.isRefundAnytime==1}}">申请退款</view>
+        </view>
+        <qr-code-modal options="{{qrCodeOption}}"></qr-code-modal>
+    </view>
+    <view wx:else>
+        <view class="banner g-flex g-flex-v-center g-flex-center">
+            <view class="s-pic empty-ticket" style="background-image: url('//cdn.weimob.com/saas/beauty/image/default.png')"></view>
+        </view>
+        <view class="g-h-140 g-flex g-flex-v-center s-bgc-wt g-pl-30">
+            <view class="g-h-50 g-w-400 s-bgc-ef"></view>
+        </view>
+        <view class="g-h-100 g-flex g-flex-v-center s-bgc-wt g-pl-30 g-mt-20">
+            <view class="g-h-50 g-w-250 s-bgc-ef"></view>
+        </view>
+        <view class="s-bgc-wt g-mt-20 g-pa-30 g-flex g-flex-v-center g-flex-between">
+            <view class="g-h-40 g-w-200 s-bgc-ef "></view>
+        </view>
+        <view class="s-bgc-wt g-pa-30 g-bd-t">
+            <view class="g-h-30 s-bgc-ef"></view>
+            <view class="g-h-30 g-w-400 s-bgc-ef g-mt-20"></view>
+            <view class="g-h-30 g-w-200 s-bgc-ef g-mt-20"></view>
+        </view>
+        <view class="s-bgc-wt g-mt-20 g-pa-30 g-flex g-flex-v-center g-flex-between">
+            <view class="g-h-40 g-w-200 s-bgc-ef "></view>
+        </view>
+        <view class="s-bgc-wt g-pa-30 g-bd-t">
+            <view class="g-h-30 s-bgc-ef"></view>
+            <view class="g-h-30 g-w-400 s-bgc-ef g-mt-20"></view>
+        </view>
+    </view>
+</container>
+<dialog isPadding="true" show="{{showDialog}}" title="适用门店">
+    <view class="g-flex g-flex-v-center g-flex-between bottom-banner">
+        <view class="g-pa-30 g-pb-40">
+            <view class="s-fs-28 s-fb-m">{{cardTemplate.stores}}</view>
+        </view>
+    </view>
+</dialog>
+<loading showLoading="{{showLoading}}"></loading>
+<toast option="{{toastOption}}"></toast>
+<error option="{{errOption}}"></error>
+<wxs module="dateFilter" src="../../../wxs/dateTimeFilter.wxs" />

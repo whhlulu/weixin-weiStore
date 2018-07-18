@@ -1,0 +1,71 @@
+function formatOrderStatus(status) {
+    if (['21000', '33000', '400', '500'].indexOf(status) >= 0) {
+        return ('待支付')
+    } else if (['21101', '521', '471'].indexOf(status) >= 0) {
+        return ('已支付')
+    } else if (['21530', '21630', '12630', '33330', '33430', '430', '530', '12440', '12540'].indexOf(status) >= 0) {
+        return ('已取消')
+    } else if (['21211', '12110', '33111', '411'].indexOf(status) >= 0) {
+        return ('未使用')
+    } else if (['21321', '21471', '22271', '22151', '12220', '12370', '12770', '33221', '33821', '421', '33751'].indexOf(status) >= 0) {
+        return ('已使用')
+    } else if (['21833', '21743', '21933', '22053', '33533', '33653', '453', '473'].indexOf(status) >= 0) {
+        return ('退款中')
+    } else if (['21832', '21742', '21932', '22052', '33532', '33652', '452', '472'].indexOf(status) >= 0) {
+        return ('退款成功')
+    } else if (['21834', '21744', '21934', '22054', '33534', '33654', '454', '474'].indexOf(status) >= 0) {
+        return ('退款失败')
+    }
+};
+
+function formatStatus(orderType, orderSubType, orderStatus, payStatus, channelType) {
+    switch (payStatus) {
+        case 3:
+            return ('退款中');
+        case 4:
+            return ('退款失败');
+        case 2:
+            return ('已退款');
+        default:
+            switch (orderStatus) {
+                case 0:
+                    if (orderType == 41) {
+                        if (orderSubType == 1 || payStatus == 1) {
+                            return ('待接单')
+                        };
+                        return ('待支付')
+                    };
+                    return ('待支付');
+                case 1:
+                    if (orderType == 41 && (orderSubType < 3)) {
+                        return ('待到店')
+                    } else {
+                        return ('待使用')
+                    };
+                case 2:
+                    if (orderType == 41 && (orderSubType < 3)) {
+                        if (channelType == 2) {
+                            return ('已完成')
+                        };
+                        return ('未到店')
+                    } else if (orderType == 5) {
+                        return ('已使用')
+                    } else {
+                        return ('已完成')
+                    };
+                case 3:
+                    return ('已取消');
+                case 4:
+                    return ('已拒绝');
+                case 5:
+                    return ('已作废');
+                case 7:
+                    if (orderType == 5) {
+                        return ('已过期')
+                    };
+                    return ('未到店');
+            };
+    }
+};
+module.exports.formatOrderStatus = formatOrderStatus;
+module.exports.formatStatus = formatStatus;

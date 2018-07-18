@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "container": "/components/containers/container",
+        "pay-list": "./components/payList",
+        "order-info": "./components/orderInfo",
+        "order-status-header": "./components/orderStatusHeader",
+        "x-button": "/components/button/button",
+        "loading": "/components/modal/loading",
+        "toast": "/components/modal/toast"
+    }
+}

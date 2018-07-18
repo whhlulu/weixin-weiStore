@@ -1,0 +1,9 @@
+@import "../../../../app.wxss";
+
+.order-status-header {
+    min-height: 136rpx;
+}
+
+.line-h-32 {
+    line-height: 32rpx;
+}

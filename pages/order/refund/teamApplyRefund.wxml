@@ -1,0 +1,61 @@
+<container id="container">
+    <view wx:if="{{loaded}}">
+        <order-detail-item orderItem="{{orderItem}}"></order-detail-item>
+        <view class="g-mt-20"></view>
+        <view class="g-pl-30 s-bgc-wt g-pr-30">
+            <cell noPadding content="{{refundInfo.refundableNumber}}" title="可退数量"></cell>
+            <field noPadding bind:toParent="countPrice" max="{{refundInfo.refundableNumber}}" min="1" name="number" required="{{false}}" step="1" title="数量" type="number" value="{{buyNumber||0}}"></field>
+            <cell noBorder noPadding content="¥{{totalPrice}}" title="退款金额"></cell>
+        </view>
+        <view class="g-mt-20"></view>
+        <view class="g-pl-30 s-bgc-wt g-pr-30">
+            <cell noPadding content="" title="退款方式"></cell>
+        </view>
+        <view class="g-pl-30 g-pr-30 s-bgc-wt g-flex g-flex-v-center g-flex-between">
+            <view class="return-text">
+                <text class="s-fs-28 s-fc-6">原路退回（1-7个工作日退款到原支付方）</text>
+            </view>
+            <text class="s-fc-main s-fs-48 iconfont icon-success green"></text>
+        </view>
+        <view class="g-mt-20"></view>
+        <view class="g-pl-30 s-bgc-wt g-pr-30">
+            <cell noPadding content="" title="退款原因"></cell>
+        </view>
+        <view class="g-pl-30 g-pr-30 s-bgc-wt g-flex g-flex-v-center g-flex-between refund-reason" wx:for="{{refundReason}}">
+            <text class="s-fs-28 s-fc-6">{{item}}</text>
+            <text catchtap="checkItem" class="{{index==selectIndex?'s-fc-main s-fs-48 iconfont icon-success green':'check-defult-icon'}}" data-id="{{index}}"></text>
+        </view>
+        <view class="blank-padding"></view>
+        <view class="bottom-confirm">
+            <view catchtap="confirmRefund" class="confirm-btn s-bgc-main g-br-m s-fc-wt s-fs-32">确认退款</view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="banner g-flex g-flex-v-center g-flex-center">
+            <view class="s-pic empty-ticket" style="background-image: url('//cdn.weimob.com/saas/beauty/image/default.png')"></view>
+        </view>
+        <view class="g-h-140 g-flex g-flex-v-center s-bgc-wt g-pl-30">
+            <view class="g-h-50 g-w-400 s-bgc-ef"></view>
+        </view>
+        <view class="g-h-100 g-flex g-flex-v-center s-bgc-wt g-pl-30 g-mt-20">
+            <view class="g-h-50 g-w-250 s-bgc-ef"></view>
+        </view>
+        <view class="s-bgc-wt g-mt-20 g-pa-30 g-flex g-flex-v-center g-flex-between">
+            <view class="g-h-40 g-w-200 s-bgc-ef "></view>
+        </view>
+        <view class="s-bgc-wt g-pa-30 g-bd-t">
+            <view class="g-h-30 s-bgc-ef"></view>
+            <view class="g-h-30 g-w-400 s-bgc-ef g-mt-20"></view>
+            <view class="g-h-30 g-w-200 s-bgc-ef g-mt-20"></view>
+        </view>
+        <view class="s-bgc-wt g-mt-20 g-pa-30 g-flex g-flex-v-center g-flex-between">
+            <view class="g-h-40 g-w-200 s-bgc-ef "></view>
+        </view>
+        <view class="s-bgc-wt g-pa-30 g-bd-t">
+            <view class="g-h-30 s-bgc-ef"></view>
+            <view class="g-h-30 g-w-400 s-bgc-ef g-mt-20"></view>
+        </view>
+    </view>
+</container>
+<error option="{{errOption}}"></error>
+<loading showLoading="{{showLoading}}"></loading>

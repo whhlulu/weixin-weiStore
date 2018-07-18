@@ -1,0 +1,15 @@
+<view class="g-pt-30 g-pb-30 g-flex s-bgc-wt g-pl-30">
+    <view class="team-img s-pic" style="background-image: url({{orderItem.imgUrl}})" wx:if="{{orderItem.imgUrl}}"></view>
+    <view class="team-img s-pic" style="background-image: url('//cdn.weimob.com/saas/beauty/image/default.png')" wx:else></view>
+    <view class="g-flex-c1 g-pl-20">
+        <view class="g-flex  g-flex-v">
+            <view class="s-fs-28 s-fb-m">
+                <text>{{orderItem.name}}</text>
+            </view>
+            <view class="g-pb-30 s-fb-m price p-b-none">
+                <text class="s-fs-28">¥{{orderItem.salePrice}}</text>
+                <text class="s-fs-24 s-fc-b original-price">¥{{orderItem.marketPrice}}</text>
+            </view>
+        </view>
+    </view>
+</view>

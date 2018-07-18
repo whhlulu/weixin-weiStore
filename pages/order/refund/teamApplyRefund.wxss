@@ -1,0 +1,47 @@
+.return-text {
+    padding-top: 36rpx;
+    padding-bottom: 34rpx;
+}
+
+.refund-reason {
+    height: 100rpx;
+    line-height: 50rpx;
+}
+
+.check-active-icon {
+    width: 48rpx;
+    height: 48rpx;
+    background: #09BB07;
+    border-radius: 100%;
+}
+
+.check-defult-icon {
+    width: 48rpx;
+    height: 48rpx;
+    background: #FFFFFF;
+    border: 1px solid #C9C9C9;
+    border-radius: 100%;
+}
+
+.bottom-confirm {
+    background: #f8f8f8;
+    width: 100%;
+    height: 156rpx;
+    position: fixed;
+    bottom: 0;
+    padding: 41rpx 42rpx 26rpx 44rpx;
+}
+
+.confirm-btn {
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+}
+
+.green {
+    color: #09BB07;
+}
+
+.blank-padding {
+    padding-bottom: 156rpx;
+}

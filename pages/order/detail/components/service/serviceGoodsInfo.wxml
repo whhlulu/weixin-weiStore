@@ -1,0 +1,52 @@
+<view class="s-bgc-wt g-mt-20 g-pl-30 g-pr-30">
+    <view bindtap="toPoiPage" class="g-h-100 g-arrow g-flex g-flex-v-center s-fs-32 s-fls-0 order-store-info g-bd-b">
+        {{storeInfo.name}}
+    </view>
+    <view class="g-pt-30 g-pb-30 g-bd-b">
+        <view class="s-fs-32 s-fls-0">{{dateFilter.formatFullWEn(storeInfo.bookingTime)}}</view>
+        <view class="s-fs-26 s-fc-6 s-fls-0 g-mt-10">到店人数   {{storeInfo.bookingPersons}}人</view>
+    </view>
+    <view class="g-pt-30 g-pb-30 g-flex ">
+        <view class="goods-img s-pic" style="background-image: url({{goodsInfo.imgUrl}})"></view>
+        <view class="g-flex-c1 g-pl-20">
+            <view class="g-flex g-flex-between">
+                <text class="s-fs-28">{{goodsInfo.name}}</text>
+                <text class="s-fs-28">¥{{goodsInfo.price}}</text>
+            </view>
+            <view class="g-flex g-flex-between g-mt-20">
+                <text class="s-fs-24 s-fc-9" wx:if="{{!goodsComboVos&&goodsSkuVo.skuItemsName}}">规格:{{goodsSkuVo.skuItemsName}}</text>
+                <text class="s-fs-26 s-fc-9 s-fls-0">×{{goodsInfo.cnt}}</text>
+                <text class="s-fs-24 s-fc-main s-fls-0" wx:if="{{goodsInfo.payStatus==2||goodsInfo.payStatus==3}}">{{orderStatusFilter.formatOrderStatus(goodsInfo.payStatus)}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="g-pb-30" wx:if="{{goodsComboVos&&goodsComboVos.length>0}}">
+        <view class="s-fs-24 s-fc-9 ">套餐内容</view>
+        <view wx:for="{{goodsComboVos}}" wx:key="{{index}}">
+            <view class="s-fs-24 s-fls-0 g-mt-20">{{item.goodsName}}
+            <text wx:if="{{item.skuNames}}">（{{item.skuNames}}）</text>
+            </view>
+        </view>
+    </view>
+    <view class="g-h-100 g-flex g-flex-v-center g-flex-between s-fs-28 g-bd-t">
+        <text>总金额</text>
+        <text>¥{{goodsInfo.totalAmount||'0'}}</text>
+    </view>
+</view>
+<wxs module="dateFilter" src="../../../../../wxs/dateTimeFilter.wxs" />
+<wxs module="orderStatusFilter">
+var formatOrderStatus = (function(status) {
+    if (status == 1) {
+        return ('已支付')
+    } else if (status == 2) {
+        return ('退款成功')
+    } else if (status == 3) {
+        return ('退款中')
+    } else if (status == 4) {
+        return ('退款失败')
+    } else if (status == 6) {
+        return ('拒绝下单')
+    }
+});
+module.exports.formatOrderStatus = formatOrderStatus;
+</wxs>

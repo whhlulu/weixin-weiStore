@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+        "container": "/components/containers/container",
+        "loading": "/components/modal/loading",
+        "alert": "/components/modal/alert",
+        "toast": "/components/modal/toast",
+        "error": "/components/errorPage/error",
+        "cell": "/components/cell/cell",
+        "field": "/components/field/field",
+        "order-detail-item": "../detail/components/orderDetailItem"
+    }
+}

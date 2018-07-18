@@ -1,0 +1,9 @@
+@import "../../../../app.wxss";
+
+.info-content view:first-child {
+    margin-top: 0;
+}
+
+.name {
+    min-width: 122rpx;
+}

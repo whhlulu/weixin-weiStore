@@ -1,0 +1,38 @@
+<container id="container">
+    <tab bind:tabChange="tabChange" tabList="{{tabList}}" wx:if="{{loaded}}">
+        <scroll-view scrollY bindscrolltolower="loadMore" class="g-pb-100" data-item="{{item}}" slot="{{item.name}}" style="height: 100%" wx:for="{{tabList}}">
+            <view wx:if="{{pageInfo[item.name].list.length}}">
+                <order-item info="{{orderItem}}" wx:for="{{pageInfo[item.name].list}}" wx:for-item="orderItem"></order-item>
+                <view class="g-h-88 g-flex g-flex-v-center g-flex-center s-fs-28">
+                    <text wx:if="{{pageInfo[item.name].list.length<pageInfo[item.name].total}}">加载中</text>
+                    <text wx:else>没有更多了</text>
+                </view>
+            </view>
+            <view class="g-flex g-flex-v g-flex-center g-flex-v-center g-h100" wx:else>
+                <view class="s-pic error-img" style="background-image: url('//cdn.weimob.com/saas/beauty/image/empty-order.png')"></view>
+                <view class="s-fc-6 s-fs-28 g-mt-30">暂无订单</view>
+            </view>
+        </scroll-view>
+    </tab>
+    <view wx:else>
+        <view class="g-h-100 s-bgc-wt g-flex g-flex-v-center g-flex-between  g-pl-30 g-pr-30">
+            <view class="g-w-140 g-h-40 s-bgc-ef" wx:for="{{4}}"></view>
+        </view>
+        <view class="s-bgc-wt g-mt-20 g-pl-30 g-pr-30" wx:for="{{2}}">
+            <view class="g-h-88 g-flex g-flex-v-center">
+                <view class="g-w-140 g-h-40 s-bgc-ef"></view>
+            </view>
+            <view class="g-flex g-flex-between s-bgc-wt g-pt-30 g-pb-30 g-bd-tb ">
+                <view class="g-h-160 g-w-160 s-bgc-ef"></view>
+                <view class="g-flex-c1 g-pl-20 g-flex g-flex-v g-flex-between">
+                    <view class="g-h-50 s-bgc-ef"></view>
+                    <view class="g-h-40 g-w-200 s-bgc-ef g-mt-20"></view>
+                </view>
+            </view>
+            <view class="g-h-88 g-flex g-flex-v-center">
+                <view class="g-w-140 g-h-40 s-bgc-ef"></view>
+            </view>
+        </view>
+    </view>
+    <foot-menu option="{{menuState}}"></foot-menu>
+</container>

@@ -1,0 +1,13 @@
+@import "../../../../app.wxss";
+
+.order-info view:first-child {
+    margin-top: 0;
+}
+
+.order-info {
+    margin-bottom: 130rpx;
+}
+
+.line-h-36 {
+    line-height: 36rpx;
+}

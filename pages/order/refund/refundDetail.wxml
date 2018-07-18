@@ -1,0 +1,89 @@
+<container id="container">
+    <view wx:if="{{loaded}}">
+        <order-status-header detail="" icon="{{iconStyle}}" title="{{refundDetail.statusName}}"></order-status-header>
+        <view class="g-mt-20"></view>
+        <view class="g-pl-30 s-bgc-wt g-pt-30" wx:if="{{refundDetail.refundCodes&&refundDetail.refundCodes.length>0}}" wx:for="{{refundDetail.refundCodes}}">
+            <text class="s-fc-9 s-fs-28">券号</text>
+            <text class="s-fs-32 coupon-number">{{item}}</text>
+        </view>
+        <view class="g-pl-30 g-pr-30 s-bgc-wt g-pt-30">
+            <view class="g-bd-t g-pt-30 g-pb-30">
+                <text class="s-fc-9 s-fs-28">金额</text>
+                <text class="s-fs-32 coupon-number">¥{{refundDetail.refundAmount}}</text>
+            </view>
+        </view>
+        <view class="g-mt-20 g-pl-30 s-bgc-wt">
+            <view class="g-bd-b refund">
+                <text class="s-fs-32">退款进度</text>
+            </view>
+        </view>
+        <view class="s-bgc-wt refund-progress">
+            <view class="refund-line height-136" wx:if="{{refundDetail&&refundProgress.length===1}}"></view>
+            <view class="refund-line height-216" wx:if="{{refundDetail&&refundProgress.length===2}}"></view>
+            <view class="refund-line height-426" wx:if="{{refundDetail&&refundProgress.length===3}}"></view>
+            <view class="g-flex " wx:if="{{refundProgress&&refundProgress.length>0}}" wx:for="{{refundProgress}}">
+                <block wx:if="{{index===0}}">
+                    <view class="g-pl-32 g-pr-30 refund-radius-padding ">
+                        <view class="refund-radius-active"></view>
+                    </view>
+                    <view class="g-pt-40 g-flex-c1">
+                        <view class="s-fb-m s-fs-36">
+                            <text>{{item.progress}}</text>
+                        </view>
+                        <view class="s-fs-30 g-pt-10 g-pb-10">
+                            <text class="s-fc-9">{{item.progressDes}}</text>
+                        </view>
+                        <view class="s-fb-m  {{index+1==refundProgress.length?'':'g-bd-b'}} s-fs-24 g-pb-40 s-fb-m">
+                            <text class="s-fc-9"> {{dateFilter.formatFullEn(item.progressTime)}}</text>
+                        </view>
+                    </view>
+                </block>
+                <block wx:if="{{index!==0}}">
+                    <view class="g-pl-40 pr-38 refund-radius-info">
+                        <view class="refund-radius"></view>
+                    </view>
+                    <view class="g-flex-c1 refund-info">
+                        <view class="s-fb-m s-fs-32">
+                            <text class="s-fc-6">{{item.progress}}</text>
+                        </view>
+                        <view class="s-fs-26 g-pt-10 g-pb-10">
+                            <text class="s-fc-9">{{item.progressDes}}</text>
+                        </view>
+                        <view class="s-fb-m {{index+1==refundProgress.length?'':'g-bd-b'}} s-fs-24 g-pb-30">
+                            <text class="s-fc-9">{{dateFilter.formatFullEn(item.progressTime)}}</text>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="banner g-flex g-flex-v-center g-flex-center">
+            <view class="s-pic empty-ticket" style="background-image: url('//cdn.weimob.com/saas/beauty/image/default.png')"></view>
+        </view>
+        <view class="g-h-140 g-flex g-flex-v-center s-bgc-wt g-pl-30">
+            <view class="g-h-50 g-w-400 s-bgc-ef"></view>
+        </view>
+        <view class="g-h-100 g-flex g-flex-v-center s-bgc-wt g-pl-30 g-mt-20">
+            <view class="g-h-50 g-w-250 s-bgc-ef"></view>
+        </view>
+        <view class="s-bgc-wt g-mt-20 g-pa-30 g-flex g-flex-v-center g-flex-between">
+            <view class="g-h-40 g-w-200 s-bgc-ef "></view>
+        </view>
+        <view class="s-bgc-wt g-pa-30 g-bd-t">
+            <view class="g-h-30 s-bgc-ef"></view>
+            <view class="g-h-30 g-w-400 s-bgc-ef g-mt-20"></view>
+            <view class="g-h-30 g-w-200 s-bgc-ef g-mt-20"></view>
+        </view>
+        <view class="s-bgc-wt g-mt-20 g-pa-30 g-flex g-flex-v-center g-flex-between">
+            <view class="g-h-40 g-w-200 s-bgc-ef "></view>
+        </view>
+        <view class="s-bgc-wt g-pa-30 g-bd-t">
+            <view class="g-h-30 s-bgc-ef"></view>
+            <view class="g-h-30 g-w-400 s-bgc-ef g-mt-20"></view>
+        </view>
+    </view>
+</container>
+<loading showLoading="{{showLoading}}"></loading>
+<error option="{{errOption}}"></error>
+<wxs module="dateFilter" src="../../../wxs/dateTimeFilter.wxs" />

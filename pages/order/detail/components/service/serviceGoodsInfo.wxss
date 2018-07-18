@@ -1,0 +1,10 @@
+@import "../../../../../app.wxss";
+
+.order-store-info.g-arrow:after {
+    right: 0;
+}
+
+.goods-img {
+    width: 140rpx;
+    height: 140rpx;
+}

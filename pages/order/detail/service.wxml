@@ -1,0 +1,47 @@
+<container id="container">
+    <view wx:if="{{loaded}}">
+        <order-status-header order="{{orderDetail}}"></order-status-header>
+        <service-goods-info bind:toPoiPage="toPoiPage" goodsComboVos="{{goodsComboVos}}" goodsInfo="{{goodsInfo}}" goodsSkuVo="{{goodsSkuVo}}" storeInfo="{{storeInfo}}"></service-goods-info>
+        <pay-list info="{{payInfo}}"></pay-list>
+        <reserved-info info="{{reservedInfo}}"></reserved-info>
+        <order-info info="{{orderInfo}}"></order-info>
+        <view class="blank-padding" wx:if="{{orderDetail.orderStatus==0&&orderDetail.payStatus<2||orderDetail.orderStatus==1&&orderDetail.payStatus==1}}"></view>
+        <view class="g-mt-20  bottom-button {{state.isIpx?'ipx-bottom':''}}" wx:if="{{orderDetail.orderStatus==0&&orderDetail.payStatus<2||orderDetail.orderStatus==1&&orderDetail.payStatus==1}}">
+            <view class="bottom-button-item">
+                <view catchtap="cancelOrder" class="s-fs-28 s-fc-6 cancel-btn g-br-m g-mt-20" wx:if="{{canCancel&&orderDetail.orderStatus==0&&orderDetail.payStatus<2&&isShow}}">取消订单</view>
+                <view catchtap="goPay" class="s-bgc-main go-pay g-br s-fc-wt s-fb g-mt-20 s-fs-28" wx:if="{{orderDetail.orderStatus==0&&orderDetail.orderSubType==2&&orderDetail.payStatus==0&&isShow}}">去支付 {{mm}}:{{ss}}</view>
+                <view class="g-tar s-bgc-8 go-pay g-br s-fc-wt s-fb g-mt-20 s-fs-28" wx:if="{{orderDetail.orderStatus==0&&orderDetail.orderSubType==2&&orderDetail.payStatus==0&&!isShow}}">逾期未支付</view>
+                <view catchtap="cancelOrder" class="g-tar s-fc-6 s-fs-28 cancel-btn g-mt-20 g-mr-30 g-br" wx:if="{{canCancel&&orderDetail.orderStatus==1&&orderDetail.orderSubType==2&&orderDetail.payStatus==1}}">取消订单</view>
+            </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="banner g-flex g-flex-v-center g-flex-center">
+            <view class="s-pic empty-ticket" style="background-image: url('//cdn.weimob.com/saas/beauty/image/default.png')"></view>
+        </view>
+        <view class="g-h-140 g-flex g-flex-v-center s-bgc-wt g-pl-30">
+            <view class="g-h-50 g-w-400 s-bgc-ef"></view>
+        </view>
+        <view class="g-h-100 g-flex g-flex-v-center s-bgc-wt g-pl-30 g-mt-20">
+            <view class="g-h-50 g-w-250 s-bgc-ef"></view>
+        </view>
+        <view class="s-bgc-wt g-mt-20 g-pa-30 g-flex g-flex-v-center g-flex-between">
+            <view class="g-h-40 g-w-200 s-bgc-ef "></view>
+        </view>
+        <view class="s-bgc-wt g-pa-30 g-bd-t">
+            <view class="g-h-30 s-bgc-ef"></view>
+            <view class="g-h-30 g-w-400 s-bgc-ef g-mt-20"></view>
+            <view class="g-h-30 g-w-200 s-bgc-ef g-mt-20"></view>
+        </view>
+        <view class="s-bgc-wt g-mt-20 g-pa-30 g-flex g-flex-v-center g-flex-between">
+            <view class="g-h-40 g-w-200 s-bgc-ef "></view>
+        </view>
+        <view class="s-bgc-wt g-pa-30 g-bd-t">
+            <view class="g-h-30 s-bgc-ef"></view>
+            <view class="g-h-30 g-w-400 s-bgc-ef g-mt-20"></view>
+        </view>
+    </view>
+</container>
+<loading showLoading="{{showLoading}}"></loading>
+<toast option="{{toastOption}}"></toast>
+<error option="{{errOption}}"></error>

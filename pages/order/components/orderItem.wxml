@@ -1,0 +1,50 @@
+<view catchtap="toOrderDetail" class="order-item g-pl-30 g-pr-30 s-bgc-wt g-mt-20">
+    <view class="g-h-100  g-flex g-flex-between g-flex-v-center">
+        <view catchtap="toStoreIndex" class="g-arrow s-fc-6 s-fs-28 g-pr-30 g-text-line1-b order-store-name">{{info.storeName}}</view>
+        <view class="s-fc-main s-fs-28">{{info.orderStatusStr||''}}</view>
+    </view>
+    <view class="order-detail g-flex g-flex-v-center g-bd-tb">
+        <view class="product-img s-pic" style="background-image: url({{info.goodsPicUrl||'//cdn.weimob.com/saas/beauty/image/store-logo-default.png'}})"></view>
+        <view class="order-des g-flex g-flex-v {{info.orderType!=4?'g-flex-between':'g-flex-center'}} g-flex-c1 g-pl-20">
+            <view class="s-fs-28" wx:if="{{info.orderType!=4}}">{{info.goodsName}}</view>
+            <view>
+                <view class="s-fs-26 s-fc-6" wx:if="{{info.orderType==41&&(info.orderSubType==1||info.orderSubType==2)}}">到店时间：{{dateFilter.formatYMDHIEn(info.createTime)}}</view>
+                <view class="s-fs-26 s-fc-6 {{info.orderSubType==3||info.orderSubType==4?'g-pb-40':''}}" wx:else>下单时间：{{dateFilter.formatYMDHIEn(info.createTime)}}</view>
+                <view class="s-fs-26 s-fc-6" wx:if="{{info.orderType==41&&(info.orderSubType==1||info.orderSubType==2)}}">到店人数：{{info.totalNumber}}</view>
+                <view class="s-fs-26 s-fc-6 g-mt-20" wx:if="{{info.orderType==4}}">总价：{{info.totalAmount}} <text class="g-pl-50 s-fs-26 s-fc-6">实付：{{info.paidAmount}}</text>
+                </view>
+                <view class="s-fs-26 s-fc-6" wx:if="{{info.orderType==5}}">实付：{{info.paidAmount}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="g-h-100 g-tal s-fc-6 s-fs-26 order-footer">{{order.formatOrderType(info.orderType,info.orderSubType)}}</view>
+</view>
+<wxs module="order">
+function formatOrderType(type, subType) {
+    var temp = type + '_' + subType;
+    console.log(temp);
+    switch (temp) {
+        case '41_3':
+            return ('计次卡套餐');
+            break;
+        case '41_4':
+            return ('周期卡套餐');
+            break;
+        case '4_0':
+            return ('在线买单');
+            break;
+        case '41_2':
+            return ('预约预订');
+            break;
+        case '41_1':
+            return ('预约预订');
+            break;
+        case '5_0':
+            return ('团购');
+            break;
+    }
+};
+module.exports.formatOrderType = formatOrderType;
+</wxs>
+<wxs module="statusFilter" src="../wxs/orderStatusFilterForList.wxs" />
+<wxs module="dateFilter" src="../../../wxs/dateTimeFilter.wxs" />

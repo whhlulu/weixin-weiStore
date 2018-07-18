@@ -1,0 +1,21 @@
+<container id="container">
+    <order-status-header detail="预约订单已提交" title="已完成"></order-status-header>
+    <view class="g-mt-20 g-pl-30 s-bgc-wt">
+        <view class="store-info g-h-100 g-flex g-flex-between g-flex-v-center g-bd-b g-pr-30">
+            <view class="g-arrow s-fs-32 g-pr-20">韩国西西婚纱摄影</view>
+            <view class="s-fc-9 s-fs-28">联系商家</view>
+        </view>
+        <view class="g-pr-30 g-pb-30">
+            <detail-line-info content="2017-11-20 12:30:00" title="预约时间"></detail-line-info>
+            <detail-line-info content="张三 先生" title="联系人"></detail-line-info>
+            <detail-line-info content="13888888888" title="电话"></detail-line-info>
+            <detail-line-info content="上海市宝山区长江路258号中成智谷创意C1-8027韩国西西婚纱摄影" title="门店地址"></detail-line-info>
+            <detail-line-info content="到店送娜丽丝玫瑰防晒喷雾" title="到店有礼"></detail-line-info>
+            <detail-line-info content="送全场8.9折劵" title="预约送券"></detail-line-info>
+        </view>
+    </view>
+    <view class="g-pa-30 g-mt-30">
+        <x-button catchtap="cancelOrder" type="cancel">取消订单</x-button>
+    </view>
+</container>
+<alert bind:alertCallBack="alertCallBack" bind:cancelEvent="cancelEvent" bind:okEvent="okEvent" option="{{alertOption}}"></alert>

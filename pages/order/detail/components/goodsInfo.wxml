@@ -1,0 +1,20 @@
+<view class="s-bgc-wt g-mt-20 g-pl-30 g-pr-30">
+    <view catchtap="gotoStoreList" class="g-h-100 g-arrow g-flex g-flex-v-center s-fs-32 s-fls-0 order-store-info g-bd-b">
+        {{storeInfo.name}}
+    </view>
+    <view class="g-pt-30 g-pb-30 g-flex g-bd-b">
+        <view class="goods-img s-pic" style="background-image: url({{goodsInfo.imgUrl}})" wx:if="{{goodsInfo.imgUrl}}"></view>
+        <view class="goods-img s-pic" style="background-image: url('//cdn.weimob.com/saas/beauty/image/default.png')" wx:else></view>
+        <view class="g-flex-c1 g-pl-20">
+            <view class="g-flex g-flex-between">
+                <text class="s-fs-28">{{goodsInfo.name}}</text>
+                <text class="s-fs-28">¥{{goodsInfo.price}}</text>
+            </view>
+            <view class="g-flex g-flex-between g-mt-20">
+                <text class="s-fs-28"></text>
+                <text class="s-fs-26 s-fc-9 s-fls-0">×{{goodsInfo.cnt}}</text>
+            </view>
+        </view>
+    </view>
+    <slot></slot>
+</view>

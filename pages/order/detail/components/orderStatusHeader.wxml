@@ -1,0 +1,6 @@
+<view class="g-pa-30 s-bgc-wt g-flex g-flex-v {{order||detail?'g-flex-between':'g-flex-center'}} order-status-header">
+    <view class="s-fs-32 s-fls-0 s-fb-m line-h-32">{{order?orderHeader.getStatusIcon(order).statusText:title}} <text class="g-ml-10 iconfont {{order?orderHeader.getStatusIcon(order).icon:icon}}"></text>
+    </view>
+    <view class="s-fs-24 s-fc-6 g-mt-20" wx:if="{{order||detail}}">{{order?orderHeader.getStatusIcon(order).statusDes:detail}}</view>
+</view>
+<wxs module="orderHeader" src="../../wxs/orderHeaderFilter.wxs" />

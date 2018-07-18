@@ -102,4 +102,65 @@
     <button bindgetuserinfo="showContact" class="btn-contact iconfont icon-kefu s-fs-40 g-pl-0 g-pr-0" openType="getUserInfo" wx:if="{{!isShowContact}}"></button>
     <button class="btn-contact iconfont icon-kefu s-fs-40 g-pl-0 g-pr-0" openType="contact" wx:else></button>
 </container>
+<popup clickModalToClose show="{{showPop}}">
+    <view class="s-bgc-f8">
+        <view class="g-h-108 s-bgc-wt g-flex g-flex-v-center g-flex-center s-fs-32 g-bd-b share-button">
+            <button catchtap="hideSharePop" class=" g-flex-c1 s-bgc-wt s-fs-32 " openType="share">发送给朋友</button>
+        </view>
+        <view class="g-h-108 s-bgc-wt g-flex g-flex-v-center g-flex-center s-fs-32 share-button">
+            <button bindgetuserinfo="showPic" class=" g-flex-c1 s-bgc-wt s-fs-32 " lang="zh_CN" openType="getUserInfo">生成海报保存分享</button>
+        </view>
+        <view catchtap="hideSharePop" class="g-h-108 s-bgc-wt g-flex g-flex-v-center g-flex-center s-fs-32 g-mt-10">取消</view>
+    </view>
+</popup>
+<!-- <alert bind:alertCallBack="alertCallBack" bind:cancelEvent="cancelEvent" bind:okEvent="okEvent" option="{{alertOption}}"></alert> -->
+<loading showLoading="{{showLoading}}"></loading>
+<toast option="{{toastOption}}"></toast>
+<error option="{{errOption}}"></error>
 <foot-menu option="{{menuState}}"></foot-menu>
+<wxs module="icon">
+function getIcon(id) {
+    console.log(id);
+    var icon = '';
+    var text = '';
+    switch (id) {
+        case "1":
+            icon = 'icon-parking';
+            text = '停车场';
+            break;
+        case "2":
+            icon = 'icon-wlan  s-fs-18';
+            text = 'wi-fi';
+            break;
+        case "3":
+            icon = 'icon-room';
+            text = '包厢';
+            break;
+        case "4":
+            icon = 'icon-scenery';
+            text = '景观位';
+            break;
+        case "5":
+            icon = 'icon-sofa';
+            text = '沙发位';
+            break;
+        case "6":
+            icon = 'icon-smoking s-fs-18';
+            text = '吸烟区';
+            break;
+        case "7":
+            icon = 'icon-water';
+            text = '免费茶水';
+            break;
+        case "8":
+            icon = 'icon-food';
+            text = '免费零食';
+            break;
+    };
+    return (({
+        icon: icon,
+        text: text,
+    }))
+};
+module.exports.getIcon = getIcon;
+</wxs>

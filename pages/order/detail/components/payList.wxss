@@ -1,0 +1,5 @@
+@import "../../../../app.wxss";
+
+.pay-footer {
+    border-top: 1rpx dashed #ddd;
+}

@@ -1,0 +1,3 @@
+.record-item:last-child {
+    border-bottom: none;
+}

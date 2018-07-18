@@ -1,0 +1,6 @@
+<view class="g-mt-20 s-bgc-wt g-pa-30 info-content">
+    <view class="g-flex g-flex-v-center g-flex-between s-fs-28 g-mt-30" wx:if="{{item.content}}" wx:for="{{info}}">
+        <text class="name">{{item.name}}</text>
+        <text>{{item.content}}</text>
+    </view>
+</view>

@@ -1,0 +1,28 @@
+<container id="container">
+    <order-detail-item orderItem="{{orderInfo}}"></order-detail-item>
+    <view class="g-mt-20"></view>
+    <view class="g-pl-30 s-bgc-wt g-pr-30">
+        <cell noPadding content="{{refundInfo.refundCardCounts}}" title="退款数量"></cell>
+        <cell noPadding content="¥{{refundInfo.totalAmount}}" noBorder="{{!refundInfo.orderPayInfo.point&&!refundInfo.orderPayInfo.balanceAmount&&!refundInfo.orderPayInfo.cardPayInfos}}" title="退款金额"></cell>
+        <cell noPadding content="¥{{refundInfo.orderPayInfo.balanceAmount}}" noBorder="{{!refundInfo.orderPayInfo.cardPayInfos&&!refundInfo.orderPayInfo.point}}" title="退回会员卡余额" wx:if="{{refundInfo.orderPayInfo.balanceAmount}}"></cell>
+        <cell noPadding content="{{refundInfo.orderPayInfo.point}}" noBorder="{{!refundInfo.orderPayInfo.cardPayInfos}}" title="退回积分" wx:if="{{refundInfo.orderPayInfo.point}}"></cell>
+        <cell noBorder noPadding colorType="{{'s-fc-main'}}" content="{{'已使用优惠券不支持退回'}}" title="优惠券" wx:if="{{refundInfo.orderPayInfo.cardPayInfos}}"></cell>
+    </view>
+    <view class="g-mt-20"></view>
+    <view class="g-pl-30 s-bgc-wt g-pr-30">
+        <cell noPadding content="" title="退款方式"></cell>
+    </view>
+    <view class="g-pl-30 g-pr-30 s-bgc-wt g-flex g-flex-v-center g-flex-between">
+        <view class="return-text">
+            <text class="s-fs-28 s-fc-6">原路退回（1-7个工作日退款到原支付方）</text>
+        </view>
+        <text class="s-fc-main s-fs-48 iconfont icon-success green"></text>
+    </view>
+    <view class="bottom-confirm">
+        <view catchtap="confirmRefund" class="confirm-btn s-bgc-main g-br-m s-fc-wt s-fs-32">确认退款</view>
+    </view>
+</container>
+<alert bind:alertCallBack="alertCallBack" bind:cancelEvent="cancelEvent" bind:okEvent="okEvent" info="{{info}}" option="{{alertOption}}"></alert>
+<loading showLoading="{{showLoading}}"></loading>
+<toast option="{{toastOption}}"></toast>
+<error option="{{errOption}}"></error>

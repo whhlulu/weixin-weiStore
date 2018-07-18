@@ -1,0 +1,15 @@
+{
+    "usingComponents": {
+        "alert": "/components/modal/alert",
+        "loading": "/components/modal/loading",
+        "toast": "/components/modal/toast",
+        "error": "/components/errorPage/error",
+        "cell": "/components/cell/cell",
+        "popup": "/components/modal/popup",
+        "x-button": "/components/button/button",
+        "foot-menu": "/components/bar/footMenu",
+        "order-item": "./components/orderItem",
+        "tab": "/components/tab/tab",
+        "container": "/components/containers/container"
+    }
+}

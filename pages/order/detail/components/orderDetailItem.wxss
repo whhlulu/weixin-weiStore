@@ -1,0 +1,21 @@
+@import "../../../../app.wxss";
+
+.team-img {
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.price {
+    margin-top: 60rpx;
+}
+
+.original-price {
+    margin-left: 7rpx;
+    color: #999999;
+    letter-spacing: 0.2rpx;
+    text-decoration: line-through;
+}
+
+.p-b-none {
+    padding-bottom: 0;
+}

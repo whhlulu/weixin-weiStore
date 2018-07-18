@@ -1,0 +1,44 @@
+@import "../../../../../app.wxss";
+
+.card-item {
+    height: 210rpx;
+}
+
+.g-h-104 {
+    height: 104rpx;
+}
+
+.circle-line {
+    position: relative;
+    border-top: 1rpx dashed #ddd;
+}
+
+.circle-line:before,.circle-line:after {
+    display: inline-block;
+    content: " ";
+    height: 20rpx;
+    width: 20rpx;
+    border: 1rpx solid #ddd;
+    border-radius: 100%;
+    position: absolute;
+    top: -10rpx;
+    background-color: #fff;
+}
+
+.circle-line:before {
+    left: -10rpx;
+    border-left: 1rpx solid transparent;
+    border-bottom: 1rpx solid transparent;
+    transform: rotate(45deg);
+}
+
+.circle-line:after {
+    right: -10rpx;
+    border-right: 1rpx solid transparent;
+    border-top: 1rpx solid transparent;
+    transform: rotate(45deg);
+}
+
+.padding-r-none {
+    padding-right: 0;
+}

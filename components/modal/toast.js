@@ -18,7 +18,7 @@ Component({
     },
     methods: {
         showToast: function() {
-            var o = this, s = this.properties.option, e = s.showToast, i = s.timer;
+          var o = this, s = this.properties.option, e = s.value.showToast, i = s.value.timer;
             e && (this.setData({
                 showToast: e
             }), i && (t && (clearTimeout(t), t = null), t = setTimeout(function() {

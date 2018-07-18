@@ -1,0 +1,46 @@
+<view class="g-bd-a g-br-l card-item g-mt-30">
+    <view class="g-h-104 g-flex g-flex-v-center g-flex-between">
+        <view class="g-pa-20 padding-r-none">
+            <text class="s-fc-9 s-fs-24">卡号</text>
+            <text class="s-fs-32 g-pl-20">{{cardNumber}}</text>
+        </view>
+        <text class="s-fs-24 s-fc-main g-pa-20 padding-l-none" wx:if="{{status==5||status==6}}">{{orderStatusFilter.formatOrderStatus(status)}}</text>
+        <text class="s-fs-24 s-fc-main" wx:if="{{status==3||status==4}}"></text>
+        <text catchtap="useCard" class="s-fs-40 s-fc-6 iconfont icon-qrcode g-pa-20 g-pl-40" wx:if="{{status==1||status==2}}"></text>
+    </view>
+    <view class="circle-line"></view>
+    <view class="g-h-104 g-flex g-flex-v-center g-flex-between g-pa-20" wx:if="{{type==3}}">
+        <view>
+            <text class="s-fc-9 s-fs-24">总次数</text>
+            <text class="s-fs-32 g-pl-20">{{total}}次</text>
+            <text class="s-fc-9 s-fs-24 g-ml-60">剩余次数</text>
+            <text class="s-fs-32 g-pl-20">{{surplus}}次</text>
+        </view>
+        <view catchtap="showUseLog" class="s-fs-24 s-fc-main" wx:if="{{status==2||status==3}}">查看明细</view>
+    </view>
+    <view class="g-h-104 g-flex g-flex-v-center g-flex-between g-pa-20" wx:else>
+        <view>
+            <text class="s-fc-9 s-fs-24">剩余天数</text>
+            <text class="s-fs-32 g-pl-20">{{surplus}}天</text>
+        </view>
+        <view catchtap="showUseLog" class="s-fs-24 s-fc-main" wx:if="{{status==2||status==3}}">查看明细</view>
+    </view>
+</view>
+<wxs module="orderStatusFilter">
+var formatOrderStatus = (function(status) {
+    if (status == 1) {
+        return ('待使用')
+    } else if (status == 2) {
+        return ('使用中')
+    } else if (status == 3) {
+        return ('完成')
+    } else if (status == 4) {
+        return ('已过期')
+    } else if (status == 5) {
+        return ('退款成功')
+    } else if (status == 6) {
+        return ('退款中')
+    }
+});
+module.exports.formatOrderStatus = formatOrderStatus;
+</wxs>

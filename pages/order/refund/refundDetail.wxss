@@ -1,0 +1,79 @@
+.coupon-number {
+    padding-left: 20rpx;
+}
+
+.refund {
+    padding: 28rpx 0rpx 28rpx 0rpx;
+}
+
+.refund-radius-padding {
+    padding-top: 48rpx;
+}
+
+.refund-radius-active-padding {
+    padding-top: 58rpx;
+}
+
+.refund-radius-active {
+    background: #FF5050;
+    border: 7rpx solid #FFE0E0;
+    border-radius: 100%;
+    width: 34rpx;
+    height: 34rpx;
+}
+
+.refund-radius {
+    display: inline-block;
+    background: #DDDDDD;
+    border-radius: 100%;
+    width: 14rpx;
+    height: 14rpx;
+}
+
+.refund-line {
+    position: absolute;
+    top: 82rpx;
+    left: 46rpx;
+    width: 2rpx;
+    border-left: 1px dashed #E4E4E4;
+}
+
+.height-136 {
+    height: 136rpx;
+}
+
+.height-216 {
+    height: 216rpx;
+}
+
+.height-426 {
+    height: 426rpx;
+}
+
+.refund-progress {
+    position: relative;
+}
+
+.g-pl-32 {
+    padding-left: 30rpx;
+}
+
+.refund-radius-info {
+    padding-top: 44rpx;
+}
+
+.refund-info {
+    padding-top: 54rpx;
+}
+
+.pr-38 {
+    padding-right: 38rpx;
+}
+
+.ml-16 {
+    margin-left: 16rpx;
+}
+
+.ml-6 {
+    margin-left: 6rpx;
+}

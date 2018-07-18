@@ -21,7 +21,7 @@ Component({
             });
         },
         showAlert: function() {
-            this.data.option.showModal && this.setData({
+            this.setData({
                 showAlert: !0
             });
         },

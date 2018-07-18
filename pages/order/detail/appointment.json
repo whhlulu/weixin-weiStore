@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "container": "/components/containers/container",
+        "alert": "/components/modal/alert",
+        "detail-line-info": "./components/detailLineInfo",
+        "x-button": "/components/button/button",
+        "order-status-header": "./components/orderStatusHeader"
+    }
+}

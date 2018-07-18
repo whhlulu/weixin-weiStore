@@ -1,0 +1,45 @@
+<container id="container">
+    <order-status-header order="{{orderDetail}}"></order-status-header>
+    <goods-info bind:toPoiPage="toPoiPage" goodsInfo="{{goodsInfo}}" storeInfo="{{storeInfo}}">
+        <view class="g-pt-30 g-pb-30">
+            <view class="s-fs-28 s-fls-0" wx:if="{{orderDetail.orderSubType==3}}">计次卡</view>
+            <view class="s-fs-28 s-fls-0" wx:elif="{{orderDetail.orderSubType==4}}">周期卡</view>
+            <view class="s-fs-24  s-fls-0 use-info g-flex" wx:if="{{orderDetail.payStatus>0}}">
+                <view class="s-fc-9">有效期</view>
+                <text class="s-fc-9">{{dateFilter.formatYMD(orderDetail.startDate)}}-{{dateFilter.formatYMD(orderDetail.expDate)}}</text>
+            </view>
+            <card-detail bind:useCard="useCard" cardNumber="{{item.code}}" status="{{item.cardStatus}}" surplus="{{orderDetail.orderSubType==3?item.leftCounts:item.leftDays}}" total="{{item.useCounts}}" type="{{orderDetail.orderSubType}}" wx:if="{{orderDetail.payStatus!=0}}" wx:for="{{beautyCards}}"></card-detail>
+        </view>
+    </goods-info>
+    <view class="g-mt-20" wx:if="{{orderDetail.applyStoreType==2}}">
+        <cell isLink noBorder bind:cellClick="storeCellClick" title="适用门店({{storesNum}}家）"></cell>
+    </view>
+    <view class="g-mt-20" wx:if="{{orderDetail.applyStoreType==1}}">
+        <view class="g-pl-30 s-bgc-wt g-h-100 s-fs-32 store-lh-100">
+            <text>适用门店</text>
+            <text class="store-pl-10">(全部可用)</text>
+        </view>
+    </view>
+    <pay-list info="{{payInfoDetail}}" orderStatus="{{orderDetail.payStatus==0?0:1}}"></pay-list>
+    <reserved-info info="{{reservedInfo}}"></reserved-info>
+    <order-info info="{{orderInfo}}"></order-info>
+</container>
+<view class="g-flex g-bd-b order-flex-reverse bottom-button {{state.isIpx?'ipx-bottom':''}}" wx:if="{{orderDetail.orderStatus==0&&orderDetail.payStatus==0&&orderDetail.paidTimeDeadline}}">
+    <view catchtap="goToPay" class="g-tar s-bgc-main go-pay g-br s-fc-wt s-fb g-mt-20 g-mr-30 s-fs-28 g-mb-20" wx:if="{{isShow}}">去支付{{mm}}:{{ss}}</view>
+    <view bindtap="cancleOrder" class="g-tar s-fc-6 s-fs-28 cancel-order-btn g-mt-20 g-mr-30 g-br g-mb-20" wx:if="{{isShow}}">取消订单</view>
+    <view class="g-tar s-bgc-8 go-pay g-br s-fc-wt s-fb g-mt-20 g-mr-30 s-fs-28" wx:if="{{!isShow}}">逾期未支付</view>
+</view>
+<view class="g-flex g-bd-b order-flex-reverse bottom-button {{state.isIpx?'ipx-bottom':''}}" wx:if="{{orderDetail.orderStatus==1&&orderDetail.payStatus==1&&orderDetail.totalAmount>0}}">
+    <view bindtap="applyRefund" class="g-tar s-fc-6 s-fs-28 refund-btn g-mt-20 g-mr-30 g-br g-mb-20">申请退款</view>
+</view>
+<dialog isPadding show="{{showDialog}}" title="适用门店">
+    <view class="g-pl-30 g-pr-30 g-pt-30 g-pb-40">
+        <text class="g-pr-20 s-fs-28 line-40" wx:for="{{orderDetail.applyStoreNamesList}}">{{item}}</text>
+    </view>
+</dialog>
+<qr-code-modal bind:close="close" options="{{qrCodeOption}}"></qr-code-modal>
+<alert bindalertCallBack="closeAlert" info="{{info}}" option="{{alertOption}}"></alert>
+<loading showLoading="{{showLoading}}"></loading>
+<toast option="{{toastOption}}"></toast>
+<error option="{{errOption}}"></error>
+<wxs module="dateFilter" src="../../../wxs/dateTimeFilter.wxs" />

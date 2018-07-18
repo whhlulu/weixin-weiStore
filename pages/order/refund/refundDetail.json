@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "container": "/components/containers/container",
+        "loading": "/components/modal/loading",
+        "alert": "/components/modal/alert",
+        "error": "/components/errorPage/error",
+        "dialog": "/components/modal/dialog",
+        "order-status-header": "../detail/components/orderStatusHeader",
+        "cell": "/components/cell/cell"
+    }
+}

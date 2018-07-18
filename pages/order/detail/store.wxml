@@ -1,0 +1,13 @@
+<container id="container" klass="g-pb-100">
+    <order-status-header detail="{{orderDetailInfo.orderStatus==1?'感谢您的光临，欢迎再次光临':orderDetailInfo.orderStatus==7?'订单已取消':'逾期未支付订单将自动取消'}}" icon="{{orderDetailInfo.orderStatus==1?'icon-success s-fc-grn':orderDetailInfo.orderStatus==1?'icon-fail s-fc-c':'icon-fail icon-red'}}" title="{{orderDetailInfo.orderStatusText}}"></order-status-header>
+    <pay-list info="{{payInfo}}" orderStatus="{{orderDetailInfo.orderStatus}}" type="store"></pay-list>
+    <order-info info="{{orderInfo}}"></order-info>
+    <view class="order-footer-button g-h-100 g-bd-t s-bgc-wt g-pos-fx g-w100 g-flex g-flex-end g-flex-v-center g-pr-30 {{state.isIpx?'ipx-bottom':''}}" wx:if="{{orderDetailInfo.orderStatus!=1&&orderDetailInfo.orderStatus!=7}}">
+        <x-button mini catchtap="cancelOrder" type="cancel">取消订单</x-button>
+        <view class="g-ml-20">
+            <x-button mini catchtap="continuePay" type="primary">去支付 {{mm}}:{{ss}}</x-button>
+        </view>
+    </view>
+    <loading showLoading="{{showLoading}}"></loading>
+    <toast option="{{toastOption}}"></toast>
+</container>

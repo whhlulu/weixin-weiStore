@@ -1,0 +1,224 @@
+function getStatusIcon(order) {
+    var orderType = parseInt(order.orderType);
+    var orderSubType = parseInt(order.orderSubType);
+    var orderStatus = parseInt(order.orderStatus);
+    var payStatus = parseInt(order.payStatus);
+    var channelType = parseInt(order.channelType);
+    var obj = ({
+        statusDes: '',
+        statusText: '',
+        icon: '',
+    });
+    switch (orderType) {
+        case 41:
+            switch (orderSubType) {
+                case 1:
+                    switch (orderStatus) {
+                        case 0:
+                            obj = ({
+                                statusDes: '订单已提交，等待商家接单',
+                                statusText: '待商家接单',
+                                icon: 'icon-waiting s-fc-yb',
+                            });
+                            return (obj);
+                        case 1:
+                            obj = ({
+                                statusDes: '请及时到店消费，到店后，向店员提供手机号码即可',
+                                statusText: '预约成功',
+                                icon: 'icon-success s-fc-grn',
+                            });
+                            return (obj);
+                        case 2:
+                            if (channelType == 2) {
+                                obj = ({
+                                    statusDes: '感谢本次光临，期待您的再次光临',
+                                    statusText: '已完成',
+                                    icon: 'icon-success s-fc-grn',
+                                })
+                            } else {
+                                obj = ({
+                                    statusDes: '已过预约时间未到店，期待您的再次光临',
+                                    statusText: '已完成',
+                                    icon: 'icon-success s-fc-grn',
+                                })
+                            };
+                            return (obj);
+                        case 3:
+                            if (channelType == 3) {
+                                obj = ({
+                                    statusDes: '商家超时未接单，请稍后再试',
+                                    statusText: '超时未接单',
+                                    icon: 'icon-fail s-fc-c',
+                                })
+                            } else if (channelType == 1) {
+                                obj = ({
+                                    statusDes: '用户手动取消',
+                                    statusText: '已取消',
+                                    icon: 'icon-fail s-fc-c',
+                                })
+                            };
+                            return (obj);
+                        case 4:
+                            obj = ({
+                                statusDes: '非常抱歉，由于该时段已售完，您的预约失败，请尝试其他时段',
+                                statusText: '预约失败',
+                                icon: 'icon-fail s-fc-c',
+                            });
+                            return (obj);
+                    };
+                case 2:
+                    switch (orderStatus) {
+                        case 0:
+                            switch (payStatus) {
+                                case 1:
+                                    obj = ({
+                                        statusDes: '订单已提交，等待商家接单',
+                                        statusText: '待商家接单',
+                                        icon: 'icon-waiting s-fc-yb',
+                                    });
+                                    break;
+                                case 0:
+                                    obj = ({
+                                        statusDes: '逾期未支付订单将自动取消',
+                                        statusText: '待支付',
+                                        icon: 'icon-fail s-fc-red',
+                                    });
+                                    break;
+                            };
+                            return (obj);
+                        case 1:
+                            obj = ({
+                                statusDes: '开始前2小时不可退款，请及时到店，到店后，向店员提供手机号码即可',
+                                statusText: '预订成功',
+                                icon: 'icon-success s-fc-grn',
+                            });
+                            return (obj);
+                        case 2:
+                            obj = ({
+                                statusDes: '感谢本次光临，期待您的再次光临',
+                                statusText: '已完成',
+                                icon: 'icon-success s-fc-grn',
+                            });
+                            return (obj);
+                        case 3:
+                            switch (payStatus) {
+                                case 0:
+                                    if (channelType == 1) {
+                                        obj = ({
+                                            statusDes: '用户手动取消',
+                                            statusText: '已取消',
+                                            icon: 'icon-fail s-fc-c',
+                                        })
+                                    } else {
+                                        obj = ({
+                                            statusDes: '15分钟内未完成支付，订单已自动取消',
+                                            statusText: '已取消',
+                                            icon: 'icon-fail s-fc-c',
+                                        })
+                                    };
+                                    return (obj);
+                                default:
+                                    if (channelType == 1) {
+                                        obj = ({
+                                            statusDes: '用户手动取消',
+                                            statusText: '已取消',
+                                            icon: 'icon-fail s-fc-c',
+                                        })
+                                    } else if (channelType == 2) {
+                                        obj = ({
+                                            statusDes: '商家已取消您的订单，欢迎您的下次光临',
+                                            statusText: '已取消',
+                                            icon: 'icon-fail s-fc-c',
+                                        })
+                                    } else {
+                                        obj = ({
+                                            statusDes: '商家超时未接单，请稍后再试',
+                                            statusText: '超时未接单',
+                                            icon: 'icon-fail s-fc-c',
+                                        })
+                                    };
+                                    return (obj);
+                            };
+                        case 4:
+                            obj = ({
+                                statusDes: '非常抱歉，由于该时段已售完，您的预订失败，请尝试其他时段',
+                                statusText: '预订失败',
+                                icon: 'icon-fail s-fc-c',
+                            });
+                            return (obj);
+                        case 5:
+                            obj = ({
+                                statusDes: '商家已取消您的订单，欢迎您的下次光临',
+                                statusText: '已取消',
+                                icon: 'icon-fail s-fc-c',
+                            });
+                            return (obj);
+                        case 7:
+                            obj = ({
+                                statusDes: '已过预约时间未到店，期待您的再次光临',
+                                statusText: '已完成',
+                                icon: 'icon-success s-fc-grn',
+                            });
+                            return (obj);
+                    };
+                    return (obj);
+                default:
+                    switch (orderStatus) {
+                        case 0:
+                            obj = ({
+                                statusDes: '逾期未支付订单将自动取消',
+                                statusText: '待支付',
+                                icon: 'icon-fail s-fc-red',
+                            });
+                            return (obj);
+                        case 1:
+                            obj = ({
+                                statusDes: '购买成功，期待您的光临',
+                                statusText: '待使用',
+                                icon: 'icon-success s-fc-grn',
+                            });
+                            return (obj);
+                        case 2:
+                            obj = ({
+                                statusDes: '感谢本次光临，期待您的再次光临',
+                                statusText: '已完成',
+                                icon: 'icon-success s-fc-grn',
+                            });
+                            return (obj);
+                        case 3:
+                            if (channelType == 1) {
+                                obj = ({
+                                    statusDes: '用户手动取消',
+                                    statusText: '已取消',
+                                    icon: 'icon-fail s-fc-c',
+                                })
+                            } else {
+                                obj = ({
+                                    statusDes: '15分钟内未完成支付，订单已自动取消',
+                                    statusText: '已取消',
+                                    icon: 'icon-fail s-fc-c',
+                                })
+                            };
+                            return (obj);
+                        case 5:
+                            if (channelType == 2) {
+                                obj = ({
+                                    statusDes: '商家已取消您的订单，欢迎您的下次光临',
+                                    statusText: '已取消',
+                                    icon: 'icon-fail s-fc-c',
+                                })
+                            } else {
+                                obj = ({
+                                    statusDes: '已与商家协商作废订单',
+                                    statusText: '已取消',
+                                    icon: 'icon-fail s-fc-c',
+                                })
+                            };
+                            return (obj);
+                    };
+            };
+            return (obj);
+    };
+    return (obj)
+};
+module.exports.getStatusIcon = getStatusIcon;

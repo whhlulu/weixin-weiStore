@@ -1,0 +1,35 @@
+@import "../../../app.wxss";
+
+.order-item .g-arrow:after {
+    right: 0;
+    height: 16rpx;
+    width: 16rpx;
+    margin-top: -8rpx;
+    border-color: #999;
+}
+
+.order-detail {
+    height: 212rpx;
+}
+
+.order-des {
+    height: 150rpx;
+}
+
+.product-img {
+    height: 150rpx;
+    width: 150rpx;
+    background-color: #888;
+}
+
+.order-footer {
+    line-height: 100rpx;
+}
+
+.order-store-name {
+    max-width: 532rpx;
+}
+
+.order-store-name.g-arrow:after {
+    right: 4rpx;
+}

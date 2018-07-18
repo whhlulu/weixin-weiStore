@@ -1,0 +1,5 @@
+@import "../../../../app.wxss";
+
+.line-title {
+    width: 142rpx;
+}

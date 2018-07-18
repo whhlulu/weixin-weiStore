@@ -1,8 +1,5 @@
 const app = getApp();
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     showMorePaymentFlg: !1,
     showMoreTeamBuyFlg: !1,
@@ -37,7 +34,7 @@ Page({
     merchantCoupon: {},
     serviceDisplayName: "",
     serviceBtnText: "",
-    loaded: 1,
+    loaded: !1,
     showPop: !1,
     shareImg: "",
     incount: 0,
@@ -48,18 +45,24 @@ Page({
     },
     isShowContact: !1
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    setTimeout(()=>{
+      this.setData({
+        loaded: !0,
+      });
+    },2000)
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
   
+  },
+  showSharePop: function () {
+    this.setData({
+      showPop: !0
+    });
+  },
+  hideSharePop: function () {
+    this.setData({
+      showPop: !1
+    });
   }
 })

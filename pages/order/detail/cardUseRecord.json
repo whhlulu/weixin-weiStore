@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "container": "/components/containers/container",
+        "alert": "/components/modal/alert",
+        "loading": "/components/modal/loading",
+        "toast": "/components/modal/toast",
+        "error": "/components/errorPage/error"
+    }
+}

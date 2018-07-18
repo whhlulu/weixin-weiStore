@@ -1,0 +1,18 @@
+{
+    "usingComponents": {
+        "container": "/components/containers/container",
+        "order-status-header": "./components/orderStatusHeader",
+        "service-goods-info": "./components/service/serviceGoodsInfo",
+        "pay-list": "./components/payList",
+        "dialog": "/components/modal/dialog",
+        "error": "/components/errorPage/error",
+        "loading": "/components/modal/loading",
+        "toast": "/components/modal/toast",
+        "x-button": "/components/button/button",
+        "reserved-info": "./components/reservedInfo",
+        "order-info": "./components/orderInfo",
+        "card-detail": "./components/card/cardDetail",
+        "cell": "/components/cell/cell",
+        "qr-code-modal": "/components/modal/qrCodeModal"
+    }
+}

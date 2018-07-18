@@ -1,0 +1,4 @@
+<view class="g-flex  s-fs-28 g-pt-30">
+    <view class="s-fc-9 line-title">{{title}}</view>
+    <view class="g-flex-c1">{{content}}</view>
+</view>
